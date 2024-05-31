@@ -29,5 +29,7 @@ public class 연습문제 {
         System.out.println("수학점수 : " + math);
         System.out.println("총점 : " + total);
         System.out.println("평균 : " + average);
+
+        System.out.println("11");
     }
 }
