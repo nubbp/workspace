@@ -1,0 +1,9 @@
+.img1 {
+   visibility: hidden;
+}
+.img2 {
+   display: none;
+}
+.img3 {
+   opacity: 0;
+}

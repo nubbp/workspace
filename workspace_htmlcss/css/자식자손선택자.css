@@ -1,0 +1,76 @@
+.u1{
+   background-color: cadetblue;
+   padding: 20px;
+}
+
+/* li {
+   background-color: darksalmon;
+   margin: 5px;
+} */
+
+/* 자식 선택자 */
+/* u1 클래스 안의 자식 li 태그 선택 */
+.u1 > li {
+   background-color: darksalmon;
+   margin: 5px;
+}
+.u2 > li {
+   background-color: #546424;
+   margin: 5px;
+   color: coral;
+}
+
+
+/* d1 클래스를 가진 태그의 자식 중 div 태그만 선택 */
+.d1 > div {
+   border: 1px solid black;
+}
+
+.d1 > div > div {
+   background-color: aqua;
+}
+
+/* d1 클래스를 가진 태그의 자식 중 span 태그만 선택 */
+.d1 > span {
+   background-color: darkgray;
+}
+
+.d1 > div > span {
+   background-color: rgb(255, 0, 0);
+}
+
+/* 자손 선택자 (하위 선택자 전부) */
+.d1 div {
+   color: #0000ff;
+   font-weight: bold;
+}
+
+/*
+   ul 태그 안의 자식 test 클래스의 자손 div 선택
+   --> ul > .test div {    }
+*/
+
+
+
+
+.u2 > li:first-child {
+   font-weight: bold;
+}
+.u2 > li:last-child {
+   font-size: 30px;
+}
+.u2 > li:nth-child(3) {
+   font-style: italic;
+   color: white;
+}
+.u2 > li::marker {
+   color: #546424;
+}
+
+.u2 > li:nth-child(even) {
+   font-size: 50px;
+}
+
+.u2 > li:nth-child(odd) {
+   text-decoration: underline;
+}

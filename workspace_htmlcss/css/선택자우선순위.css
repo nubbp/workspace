@@ -1,0 +1,19 @@
+.p1{
+   color: red;
+   background-color: black;
+}
+
+div {
+   color:aqua;
+   background-color: black;
+   font-style: italic;
+}
+
+.d1 {
+   color: red;
+   background-color: orangered !important;
+}
+
+#d1 {
+   color: white;
+}

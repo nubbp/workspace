@@ -1,0 +1,43 @@
+.container{
+   width: 600px;
+   height: 200px;
+   border: 1px solid rgb(0, 0, 0);
+   margin: auto;
+   display: flex;
+}
+
+.container > div {
+   /* width: 100px; */
+   /* height: 100px; */
+   border: 1px solid red;
+}
+
+.flex1 {
+   flex-direction: row;
+   justify-content: center;
+   align-items: stretch;
+}
+
+/* .flex1 > div:nth :nth-child(2) {
+   align-self: flex-start;
+} */
+
+.flex2 {
+   flex-direction: column;
+   justify-content: center;
+   /* flex-direction: column; */
+   align-items: center;
+}
+
+.flex1 > div:nth-child(1) {
+   flex-basis: 50%;
+}
+.flex1 > div:nth-child(2) {
+   flex-basis: 30%;
+}
+.flex1 > div:nth-child(3) {
+   flex-basis: 10%;
+}
+.flex1 > div:nth-child(4) {
+   flex-basis: 10%;
+}

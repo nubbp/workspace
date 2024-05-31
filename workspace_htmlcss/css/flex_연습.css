@@ -1,0 +1,36 @@
+.container {
+   border: 1px solid black;
+   height: 500px;
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+}
+
+.header {
+   background-color: aquamarine;
+   flex-basis: 30%;
+   line-height: 150px
+}
+
+.main {
+   flex-basis: 60%;
+   display: flex;
+   flex-direction: row;
+   line-height: 300px;
+}
+
+.side {
+   background-color: darkkhaki;
+   flex-basis: 20%
+}
+
+.content {
+   background-color: coral;
+   flex-basis: 80%;
+}
+
+.footer {
+   background-color: blanchedalmond;
+   flex-basis: 10%;
+   line-height: 50px;
+}

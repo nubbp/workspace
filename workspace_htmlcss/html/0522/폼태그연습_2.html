@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      table {
+        border: 2px solid black;
+        width: 550px;
+        text-align: left;
+        border-collapse: collapse;
+      }
+      tr, td {
+        border: 1px solid black;
+      }
+      .row-title {
+        text-align: center;
+        font-weight: bold;
+        background-color: rgb(211, 240, 252);
+      }
+      span {
+        color: red;
+        font-weight: bold;
+        font-style: italic;
+      }
+      table > tbody > tr > td:first-child {
+        text-align: center;
+        background-color: rgb(224, 248, 224);
+      }
+      .row-title {
+        text-align: center;
+        font-weight: bold;
+        background-color: rgb(211, 240, 252) !important;
+      }
+      .idNum {
+        width: 6em;
+      }
+      .year {
+        width: 4em;
+      }
+      .date {
+        width: 2em;
+      }
+      .addName{
+        width: 6em;
+      }
+      .pw {
+        width: 8em;
+      }
+      .btn-div {
+        text-align: center;
+        margin-top: 10px;
+      }
+      </style>
+</head>
+<body>
+  <!-- 버튼 만들기 -->
+  <input type="button" value="버튼 1" onclick="alert(123)"><br>
+  <button type="button">버튼 2</button>
+  <hr>
+
+  <table>
+    <colgroup>
+      <col width="*">
+      <col width="75%">
+    </colgroup>
+    <tr>
+      <td colspan="2" class="row-title"><span>&#40;*필수입력&#41; </span>회원 기본 정보</td>
+    </tr>
+    <tr>
+      <td  ><span>*</span>아이디 :</td>
+      <td>
+        <input type="text" placeholder="4~12자의 영문 대소문자, 숫자만 입력"   > 
+        <input type="button" value="아이디 검사">
+      </td>
+    </tr>
+    <tr>
+      <td><span>*</span>비밀번호 :</td>
+      <td>
+        <input type="password" class="pw"> 4~12자의 영문 대소문자와 숫자로만 입력
+      </td>
+    </tr>
+    <tr>
+      <td><span>*</span>비밀번호 확인 :</td>
+      <td>
+        <input type="password" class="pw"> <input type="button" value="비밀번호 확인">
+      </td>
+    </tr>
+    <tr>
+      <td><span>*</span>메일 주소 :</td>
+      <td>
+        <input type="text"> <input type="button" value="메일 확인"> 예&#41; id@domain.com
+      </td>
+    </tr>
+    <tr>
+      <td><span>*</span>이름 :</td>
+      <td>
+        <input type="text">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="row-title">개인 신상 정보</td>
+    </tr>
+    <tr>
+      <td><span>*</span>주민등록번호 :</td>
+      <td>
+        <input type="number" class="idNum"> - <input type="number"class="idNum"> <input type="button" value=" 확인"> 예&#41; 123456-1234567
+      </td>
+    </tr>
+    <tr>
+      <td class="idnum">생일 :</td>
+      <td>
+        <input type="number" class="year">년 <input type="number" class="date">월 <input type="number" class="date">일
+      </td>
+    </tr>
+    <tr>
+      <td>주소 :</td>
+      <td>
+        <input type="text" class="addName"> <input type="button" value="우편번호 찾기"><br> <input type="text"> <input type="text">
+      </td>
+    </tr>
+    <tr>
+      <td>관심분야 :</td>
+      <td>
+        <input type="checkbox">컴퓨터
+        <input type="checkbox">인터넷
+        <input type="checkbox">여행
+        <input type="checkbox">영화감상
+        <input type="checkbox">음악감상 
+      </td>
+    </tr>
+    <tr>
+      <td  >자기소개: </td>
+      <td>
+        <textarea cols="50" rows="3"></textarea>
+      </td>
+    </tr>
+  </table>
+<div class="btn-div">
+  <button type="button">다시 입력</button>
+  <button type="button">회원 가입</button>
+</div>
+</body>
+</html>

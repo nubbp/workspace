@@ -1,0 +1,54 @@
+body {
+   background-color: lightgray;
+}
+
+.container {
+   width: 700px;
+   margin: 50px auto;
+}
+
+
+.tab-btn {
+   display: flex;
+}
+
+.tab-btn a {
+   background-color: coral;
+   color: wheat;
+   text-align: center;
+   width: 150px;
+   padding: 5px 0px;
+   margin-right: 2px;
+   text-decoration: none;
+   font-weight: 550;
+   transition: 0.3s;
+   border-top: 2px solid #8f4704;
+}
+
+.tab-content {
+   position: relative;
+}
+
+.tab-item {
+   position: absolute;
+   background-color: white;
+   padding: 20px;
+   opacity: 0;
+   transition: 0.5s;
+   visibility: hidden;
+}
+
+.tab-item:target {
+   opacity: 1;
+   visibility: visible;
+}
+
+.tab-btn a:hover {
+   color: brown;
+}
+
+a.show {
+   background-color: white;
+   color: black;
+   border-top: 2px solid black;
+}

@@ -1,0 +1,111 @@
+* { padding: 0; margin: 0;}
+
+.back-img {
+   background: url(화면구현_메인배경.PNG) center no-repeat;
+   background-size: cover;
+   height: 1000px;
+}
+
+.black-menu {
+   width: 100vw;
+   height: 40px;
+   background-color: black;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   align-items: center;
+}
+
+.logo {
+   display: flex;
+   flex-direction: row;
+   flex-basis: 60%;
+}
+
+.user {
+   flex-basis: 40%;
+}
+
+.logo-title, .user {  color: white; }
+
+.user-menu {
+   display: flex;
+   flex-direction: row;
+   list-style: none;
+   justify-content: space-between;
+}
+
+.logo-title > span > span { font-weight: bold;}
+
+/* .black-menu {
+   background-color: #262626;
+   position: relative;
+   height: 40px;
+}
+
+.logo {
+   display: inline-block;
+   position: absolute;
+   left: 50px;
+}
+
+.logo-title { 
+   display: inline-block;
+   color: white;
+   height: 100%;
+   font-size: 30px;
+}
+
+.logo-title > span > span {
+   font-weight: bold;
+}
+
+.logo > input {
+   display: inline-block;
+   margin-left: 30px; 
+   width: 300px;
+   font-size: 1.2rem;
+}
+
+.user {
+   position: absolute;
+   display: inline-block;
+   width: 65%;
+   right: 10px;
+}
+
+.user-menu > li {
+   display: inline-block;
+   width: 100px;
+   margin-top: 10px;
+   list-style-type: none;
+   color:white;
+   text-align: center;
+} */
+
+.white-menu {
+   background-color: #ffffff;
+   text-align: center;
+   padding: 5px 0px;
+}
+
+.purple-text {
+   color: #5a2a66;
+   font-weight: bold;
+}
+
+.green-text {
+   color: #74d4b4;
+   font-weight: bold;
+}
+
+.w1 > li {
+   padding: 0px 2.5px 0 2.5px;
+   margin: 0px 5px;
+   list-style-type: none;
+   /* background-color: burlywood; */
+   display: inline;
+   width: 10px;
+   text-align: center;
+}
+

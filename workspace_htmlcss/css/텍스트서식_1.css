@@ -1,0 +1,71 @@
+/*
+   크기 단위
+      px:   기본(default) 16px
+      %:    100% -> 16px
+      em:   
+      rem:  1rem -> 16px
+            2rem -> 32px
+            0.5rem -> 8px
+*/
+/* 
+   색상
+      1. 정해진 문자 사용(red, blue, …)
+            ex-> color: red;
+      2. RGB
+         color: #000000;
+         color: rgb(r,g,b)
+            ex: (0~255,0~255,0~255);
+         color: rgb(r,g,b,a);
+            ex: (0~255,0~255,0~255,0~1);
+*/
+
+
+
+
+p {
+   /* 기본 폰트 사이즈: 16px */
+   font-size: 20px;
+   /* 기본 폰트 굵기: 400, bold: 700 */
+   font-weight: bold;
+   /* 기울임체 */
+   font-style: italic;
+   /* 줄 간격 */
+   line-height: 10px;
+}
+
+.p1 {
+   /* 줄 간격 */
+   line-height: normal;
+   /* 글자 왼쪽 맞춤 */
+   text-align: center;
+   /* 자간 */
+   letter-spacing: 5px;
+}
+
+.p2 {
+   line-height: normal;
+   color: cadetblue;
+   /* 글자 꾸밈 */
+   text-decoration: overline;
+   /* 글자 양쪽 맞춤 */
+   text-align: justify;
+}
+
+a {
+   text-decoration: none;
+   font-weight: bold;
+   color: black;
+}
+
+#c1 {
+   color: red;
+}
+#c2 {
+   color: #0000ff;
+}
+#c3 {
+   color: rgb(0, 0, 0);
+}
+#c4 {
+   color: rgb(0, 0, 0,0.5);
+}

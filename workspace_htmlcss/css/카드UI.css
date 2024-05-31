@@ -1,0 +1,87 @@
+body {
+   display: flex;
+   width: 100vw;
+   height: 100vh;
+   justify-content: center;
+   align-items: center;
+   background-color: lightcyan;
+}
+
+.container {
+   box-shadow: 0px 3px 3px #dddddd;
+   border-radius: 20px;
+   overflow: hidden;
+}
+
+.img-div {
+   width: 100%;
+   height: 200px;
+   position: relative;
+   overflow: hidden;
+}
+
+.img-div > img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   object-position: center center;
+}
+
+.detail-div {
+   background-color: white;
+}
+
+.img-div span {
+   color: white;
+   position: absolute;
+   top: 10px;
+   right: 10px;
+}
+
+.detail-div {
+   padding: 10px;
+}
+
+.detail-2 {
+   border-top: 1px solid lightgrey;
+   border-bottom: 1px solid lightgrey;
+   display: flex;
+   justify-content: space-around;
+   padding: 15px 0px;
+   margin: 5px 0px;
+}
+
+b {
+   margin: 0px 4px;
+}
+
+.detail-3 > div:nth-child(2) {
+   display: flex;
+   gap: 6px;
+   align-items: center;
+}
+
+.detail-3 img {
+   width: 50px;
+   border-radius: 50%;
+}
+
+.detail-3 button {
+   background-color: aquamarine;
+   color: white;
+   border: none;
+   border-radius: 6px;
+   width: 100px;
+   height: 30px;
+   cursor: pointer;
+   margin-left: auto;
+}
+
+.detail-3 button:hover {
+   background-color: #61cca8;
+}
+
+.img-div > img:hover {
+   scale: 1.1;
+   transition: 0.3s;
+}

@@ -1,0 +1,9 @@
+* { margin: 0; padding: 0; }
+.content {
+   background-image: url('배경.jpg');
+   background-repeat: no-repeat;
+   /* cover : 영역에 여백 없이 꽉 채움, 이미지 비율은 유지됨 */
+   background-size: contain;
+   width: 100vw;
+   height: 90vh;
+}

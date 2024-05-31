@@ -1,0 +1,107 @@
+body {
+   background-color: darkslategrey;
+   /* display: flex;
+   justify-content: center; */
+   width: 100vw;
+}
+
+.container {
+   margin: 20px auto;
+   width: 80%;
+   background-color: white;
+}
+
+.tab {
+   background-color: orange;
+   border-radius: 15px;
+   color: white;
+   font-weight: bold;
+   padding: 10px 15px;
+}
+
+h3 {
+   font-size: 35px;
+}
+
+h3 > span {
+   color: blue;
+}
+
+.guide > p {
+   line-height: 15px;
+}
+
+.text-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 20px 20px 0px 20px;
+   text-align: center;
+}
+
+.text-container > div {
+   margin-bottom: 10px;
+}
+
+.img-container {
+   display: grid;
+   padding: 15px;
+   grid-template-columns: repeat(4, 1fr);
+   grid-template-rows: 1fr 1fr;
+   gap: 10px;
+}
+
+.img-container > div {
+   position: relative;
+}
+
+.img-container > div > img {
+   width: 100%;
+}
+
+/* 
+   position을 absolute로 두면 해당 태그는 display 속성이 inline-block이 됨
+*/
+
+.info {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   font-weight: 200;
+   background-color: rgba(0, 0, 0, 0.6);
+   color: white;
+   text-align: center;
+   top: 0;
+   opacity: 0;
+}
+
+.info > p {
+   margin-bottom: 10px;
+}
+
+.info > p:nth-child(1) {
+   font-weight: 500;
+   font-size: 1.2rem;
+}
+
+.info:hover {
+   opacity: 100;
+   transition: all 0.5s;
+}
+
+.info a {
+   color:white;
+   padding: 10px 5px;
+}
+
+.info a:hover {
+   color: cadetblue;
+   transition: all 0.5s;
+}
+
+.short-cut {
+   font-size: 1.5rem;
+}

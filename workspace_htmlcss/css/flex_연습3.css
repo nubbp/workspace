@@ -1,0 +1,45 @@
+.container {
+   height: 500px;
+   display: flex;
+   flex-direction: column;
+   border: 1px solid black;
+   text-align: center;
+}
+
+.header {
+   background-color: cornflowerblue;
+   flex-basis: 30%;
+   line-height: 150px;
+}
+
+.main {
+   display: flex;
+   flex-direction: row;
+   flex-basis: 70%;
+}
+
+.content {
+   background-color: darkcyan;
+   flex-basis: 60%;
+   line-height: 350px;
+}
+
+.side {
+   flex-basis: 40%;
+   display: flex;
+   flex-direction: column;
+   line-height: 110px;
+}
+
+.side > div:nth-child(1) {
+   background-color: red;
+   flex-basis: 33%;
+}
+.side > div:nth-child(2) {
+   background-color: darkslateblue;
+   flex-basis: 34%;
+}
+.side > div:nth-child(3) {
+   background-color: antiquewhite;
+   flex-basis: 33%;
+}

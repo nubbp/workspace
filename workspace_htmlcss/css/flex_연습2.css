@@ -1,0 +1,60 @@
+.container {
+   display: flex;
+   flex-direction: column;
+   height: 500px;
+   text-align: center;
+}
+
+.row1 {
+   background-color: cornsilk;
+   flex-basis: 30%;
+   display: flex;
+   flex-direction: row;
+   line-height: 150px;
+}
+
+.row1 > div:nth-child(1) {
+   flex-basis: 65%;
+   background-color: rgb(168, 168, 168);
+}
+
+.row1 > div:nth-child(2) {
+   flex-basis: 35%;
+   background-color: greenyellow;
+}
+
+.row2 {
+   background-color: blueviolet;
+   flex-basis: 40%;
+   display: flex;
+   flex-direction: row;
+   line-height: 200px;
+}
+
+.row2 > div:nth-child(1) {
+   flex-basis: 20%;
+   background-color: salmon;
+}
+
+.row2 > div:nth-child(2) {
+   flex-basis: 80%;
+   background-color: rgb(213, 230, 187);
+}
+
+.row3 {
+   background-color: darkcyan;
+   flex-basis: 30%;
+   display: flex;
+   flex-direction: row;
+   line-height: 150px;
+}
+
+.row3 > div:nth-child(1) {
+   flex-basis: 60%;
+   background-color: rgb(168, 168, 168);
+}
+
+.row3 > div:nth-child(2) {
+   flex-basis: 40%;
+   background-color: yellow;
+}
