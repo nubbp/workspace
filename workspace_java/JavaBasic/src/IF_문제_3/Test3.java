@@ -11,11 +11,24 @@ public class Test3 {
 
         int a = num % 10; // 일의 자리
         int b = num / 10; // 십의 자리
+        int clapCnt = 0; //박수횟수
 
-        if ((a == 3 || a == 6 || a == 9)&&(b == 3 || b == 6 || b == 9)) {
-            System.out.println("박수짝짝");
-        } else if ((a == 3 || a == 6 || a == 9) || (b == 3 || b == 6 || b == 9)) {
-            System.out.println("박수짝");
+        if (a == 3 || a == 6 || a == 9){
+            clapCnt++;
+        }
+        if (b == 3 || b == 6 || b == 9) {
+            clapCnt++;
+        }
+
+        switch (clapCnt) {
+            case 1:
+                System.out.println("박수짝");
+                break;
+            case 2:
+                System.out.println("박수짝짝");
+                break;
+            default:
+                System.out.println("-");
         }
 
     }

@@ -13,7 +13,7 @@ public class Test1 {
         System.out.print("세번째 변의 길이 :");
         int num3 = sc.nextInt();
 
-        if (num1 < num2 + num3 || num2 < num1 + num3 || num3 < num1 + num2 ) {
+        if (num1 < num2 + num3 && num2 < num1 + num3 && num3 < num1 + num2 ) {
             System.out.println("삼각형 가능");
         } else {
             System.out.println("삼각형 불가능");
