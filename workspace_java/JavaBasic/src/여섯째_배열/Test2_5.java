@@ -9,5 +9,11 @@ public class Test2_5 {
             newArr[i] = arr[i];
             System.out.println("newArr 배열의 "+ (i+1) + "번째 값: " + newArr[i]);
         }
+
+        System.out.println();
+
+        for (int i : arr) {
+            System.out.println("newArr 배열의 "+ (i+1) + "번째 값: " + i);
+        }
     }
 }

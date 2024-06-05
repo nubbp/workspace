@@ -12,6 +12,13 @@ public class Test10 {
             arr[i] = sc.nextInt();
         }
 
+        for (int y : arr) {
+            System.out.print(y + " ");
+
+        }
+
+        System.out.println();
+
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }

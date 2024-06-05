@@ -10,6 +10,16 @@ public class Test11 {
                 count++;
             }
         }
+
+        System.out.println();
+
+        for (int i  : arr) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+                count++;
+            }
+        }
+
         System.out.println();
         System.out.println(count + "개");
     }
