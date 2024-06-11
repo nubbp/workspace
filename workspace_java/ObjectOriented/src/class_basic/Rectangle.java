@@ -43,8 +43,12 @@ public class Rectangle {
         System.out.println("넓이 : " + this.square());
     }
 
+//    인자로 전달된 객체 r과 현 객체가 같은 넓이라면 리턴 true
     public boolean equals(Rectangle r) {
-
-        return true;
+        if (r.square() == square()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
