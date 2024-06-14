@@ -44,4 +44,14 @@ public class Student {
     public void setEngScore(int engScore) {
         this.engScore = engScore;
     }
+
+    @Override
+    public String toString() {
+        return "Student { " +
+                "name = '" + name + '\'' +
+                ", korScore = " + korScore +
+                ", mathScore = " + mathScore +
+                ", engScore = " + engScore +
+                " }";
+    }
 }

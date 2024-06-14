@@ -18,8 +18,14 @@ public class MyArray implements MyArrayUtil {
     //    매개변수로 받은 배열의 모든 요소가 짝수일 때만 리턴 true
     public boolean isEvenArray(int[] array) {
         int count = 0;
-        for (int i = 0; i < array.length; i++) {
+        /*for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {
+                count++;
+            }
+        }*/
+
+        for (int e : array) {
+            if (e % 2 == 0) {
                 count++;
             }
         }

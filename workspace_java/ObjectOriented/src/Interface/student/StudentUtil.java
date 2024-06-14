@@ -19,15 +19,15 @@ public interface StudentUtil {
 //    70  > 평균점수        : "D" 등급
     String getGradeByStudentName(Student[] students, String name);
 
-/*//    --두번째 메소드--
+//    --두번째 메소드--
 //    메소드명: getTotalScoresToArray
 //    매개변수로 받은 다수의 학생들의 총점을 배열로 리턴
-    int[] getTotalScoresToArray(int[] scores);
+    int[] getTotalScoresToArray(Student[] scores);
 
 //    --세번째 메소드--
 //    메소드명: getHighScoreStudent
 //    매개변수로 두 명의 학생이 전달된다
 //    전달된 두 학생 중 총점이 높은 학생 객체를 리턴
 //    단, 전달된 두 학생의 총점이 같은 경우는 없다고 가정
-    Student getHighScoreStudent(Student stu1, Student stu2);*/
+    Student getHighScoreStudent(Student stu1, Student stu2);
 }
