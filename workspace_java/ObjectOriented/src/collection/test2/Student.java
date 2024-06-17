@@ -1,9 +1,9 @@
 package collection.test2;
 
 public class Student {
-    String name;
-    int age;
-    int score;
+    private String name;
+    private int age;
+    private int score;
 
     public Student(String name, int age, int score) {
         this.name = name;

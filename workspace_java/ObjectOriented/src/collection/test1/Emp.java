@@ -1,18 +1,22 @@
 package collection.test1;
 
 public class Emp {
-    int empId;
-    String name;
-    String partName;
-    int phoneNum;
-    int salary;
+    private int empId;
+    private String name;
+    private String partName;
+    private String phoneNum;
+    private int salary;
 
-    public Emp(int empId, String name, String partName, int phoneNum, int salary) {
+    public Emp(int empId, String name, String partName, String phoneNum, int salary) {
         this.empId = empId;
         this.name = name;
         this.partName = partName;
         this.phoneNum = phoneNum;
         this.salary = salary;
+    }
+
+    public String getPw() {
+        return phoneNum.substring(5);
     }
 
     public int getEmpId() {
@@ -39,11 +43,11 @@ public class Emp {
         this.partName = partName;
     }
 
-    public int getPhoneNum() {
+    public String getPhoneNum() {
         return phoneNum;
     }
 
-    public void setPhoneNum(int phoneNum) {
+    public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
 
@@ -53,5 +57,11 @@ public class Emp {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return  "이름 : " + name +
+                "   월급 : " + salary;
     }
 }

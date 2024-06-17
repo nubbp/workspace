@@ -35,7 +35,7 @@ public class TestStudent {
         for (Student e : list) {
             total += e.getTotalScore();
         }
-        System.out.println("총점에 대한 평균: " + total/6.0);
+        System.out.println((double)total/(list.size() * 2));
 
         System.out.println();
         System.out.println("4)");
