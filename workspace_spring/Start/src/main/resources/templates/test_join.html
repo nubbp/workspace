@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <div th:each="member : ${memberList}">[[${member.name}]]</div>
+
+   <th:block th:each="m : ${memberList}">
+      [[${m.age}]]
+   </th:block>
+
+   <table border="1" >
+      <tr>
+         <td>이름</td>
+         <td>나이</td>
+         <td>점수</td>
+      </tr>
+      <tr th:each="m : ${memberList}">
+         <td>[[${m.name}]]</td>
+         <td>[[${m.age}]]</td>
+         <td>[[${m.score}]]</td>
+      </tr>
+   </table>
+
+   <div>
+      <div>
+         <span>이름</span>
+         <input type="text" name="">
+      </div>
+      <div>
+         <span>연락처</span>
+         <input type="text" name="">
+      </div>
+      <div>
+         <span>성별</span>
+         <input type="radio" checked> 남
+         <input type="radio"> 여
+      </div>
+      <div>
+         <span>취미</span>
+         <input type="checkbox" checked> 독서
+         <input type="checkbox"> 게임
+         <input type="checkbox"> 운동
+      </div>
+      <div>
+         <span>가입경로</span>
+         <select name="" id="">
+            <option value="">1. 인터넷</option>
+            <option value="">2. 지인추천</option>
+            <option value="">3. 신문</option>
+         </select>
+      </div>
+      <div>
+         <button type="button">회원가입</button>
+         <a href="/main">
+            <button type="button">뒤로가기</button>
+         </a>
+      </div>
+   </div>
+</body>
+</html>
