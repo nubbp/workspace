@@ -1,15 +1,15 @@
 package com.green.DataPractice.vo;
 
+import java.util.Arrays;
+
 public class ScoreVo {
     private String user;
     private String grade;
-    private String phone1;
-    private String phone2;
+    private String[] phone;
     private String gender;
     private int korScore;
     private int engScore;
     private int mathScore;
-    private double avg;
 
     public String getUser() {
         return user;
@@ -27,20 +27,12 @@ public class ScoreVo {
         this.grade = grade;
     }
 
-    public String getPhone1() {
-        return phone1;
+    public String[] getPhone() {
+        return phone;
     }
 
-    public void setPhone1(String phone1) {
-        this.phone1 = phone1;
-    }
-
-    public String getPhone2() {
-        return phone2;
-    }
-
-    public void setPhone2(String phone2) {
-        this.phone2 = phone2;
+    public void setPhone(String[] phone) {
+        this.phone = phone;
     }
 
     public String getGender() {
@@ -75,26 +67,16 @@ public class ScoreVo {
         this.mathScore = mathScore;
     }
 
-    public double getAvg() {
-        return avg;
-    }
-
-    public void setAvg(double avg) {
-        this.avg = (korScore + engScore + mathScore)/3.0;
-    }
-
     @Override
     public String toString() {
         return "ScoreVo{" +
                 "user='" + user + '\'' +
                 ", grade='" + grade + '\'' +
-                ", phone1='" + phone1 + '\'' +
-                ", phone2='" + phone2 + '\'' +
+                ", phone=" + Arrays.toString(phone) +
                 ", gender='" + gender + '\'' +
                 ", korScore=" + korScore +
                 ", engScore=" + engScore +
                 ", mathScore=" + mathScore +
-                ", avg=" + avg +
                 '}';
     }
 }

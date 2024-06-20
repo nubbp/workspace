@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <h2>주문서</h2>
+   <h4>주문정보</h4>
+   [[${orderVo.chicken}]]([[${orderVo.chickenNum}]]마리) <br>
+   추가사항 :
+   <th:block th:each="extra : ${orderVo.extra}">
+      [[${extra}]]
+   </th:block> <br>
+   주문 금액 : [[${orderVo.chickenNum * 10000 + #arrays.length(orderVo.extra) * 1000}]]원 <br>
+   요청사항 : [[${orderVo.orderText}]] <br>
+   <h4>배달정보</h4>
+   주문자 : [[${deliveryVo.userName}]] <br>
+   연락처 : [[${deliveryVo.userTel}]] <br>
+   배달주소 : [[${deliveryVo.userAddr}]]
+</body>
+</html>

@@ -16,8 +16,8 @@
       <!-- 안 보이는 영역 -->
       <input type="hidden" name="user" th:value="${scoreVo.user}">
       <input type="hidden" name="grade" th:value="${scoreVo.grade}">
-      <input type="hidden" name="phone1" th:value="${scoreVo.phone1}">
-      <input type="hidden" name="phone2" th:value="${scoreVo.phone2}">
+      <input type="hidden" name="phone" th:value="${scoreVo.phone[0]}">
+      <input type="hidden" name="phone" th:value="${scoreVo.phone[1]}">
       <input type="hidden" name="gender" th:value="${scoreVo.gender}">
 </form>
 </body>

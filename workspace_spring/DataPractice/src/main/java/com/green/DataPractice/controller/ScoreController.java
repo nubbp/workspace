@@ -27,8 +27,11 @@ public class ScoreController {
     }
 
     @PostMapping("/page_4")
-    public String page4(ScoreVo scoreVo) {
+    public String page4(ScoreVo scoreVo, Model model) {
         System.out.println(scoreVo);
+
+        double avg = (scoreVo.getKorScore() + scoreVo.getMathScore() + scoreVo.getEngScore()) / 3.0;
+        model.addAttribute("avg", avg);
         return "page4";
     }
 

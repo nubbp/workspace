@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <form action="/receipt" method="post">
+      <h2>배달 정보</h2>
+      <h4>주문자</h4>
+      <input type="text" name="userName">
+      <h4>연락처</h4>
+      <input type="text" name="userTel">
+      <h4>배달 주소</h4>
+      <input type="text" name="userAddr">
+      <input type="submit">
+      <!-- 안 보이는 거 -->
+      <input type="hidden" name="chicken" th:value="${orderVo.chicken}">
+      <input type="hidden" name="chickenNum" th:value="${orderVo.chickenNum}">
+      <input type="hidden" name="orderText" th:value="${orderVo.orderText}">
+         <!-- 배열 때문에 쓰는 반복문 -->
+      <th:block th:each="extra : ${orderVo.extra}">
+         <input type="hidden" name="extra" th:value="${extra}">
+      </th:block>
+   </form>
+
+</body>
+</html>

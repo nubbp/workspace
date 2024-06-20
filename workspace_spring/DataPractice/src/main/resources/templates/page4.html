@@ -10,12 +10,15 @@
    학생의 정보입니다 <br>
    이름 : [[${scoreVo.user}]] <br>
    학년 : [[${scoreVo.grade}]] <br>
-   연락처 : [[${scoreVo.phone1}]] [[${scoreVo.phone2}]] <br>
+   연락처 : [[${scoreVo.phone[0]}]]-[[${scoreVo.phone[1]}]]<br>
    성별 : [[${scoreVo.gender}]] <br>
    국어 : [[${scoreVo.korScore}]] <br>
    수학 : [[${scoreVo.mathScore}]] <br>
    영어 : [[${scoreVo.engScore}]] <br>
-   평균 : [[${scoreVo.avg}]] <br>
+   평균 :  [[${(scoreVo.korScore + scoreVo.mathScore + scoreVo.engScore)/3.0}]]<br>
    <input type="submit" value="처음으로 가기">
+
+   <!-- 주석 -->
+    <!-- /* [[${scoreVo.engScore}]] */ -->
 </body>
 </html>
