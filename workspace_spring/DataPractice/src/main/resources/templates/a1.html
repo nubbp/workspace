@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   [[${stuName}]]
+   [[${score}]]
+   <!-- /a2로 이동할 때 'java'라는 데이터를 'name'이란 이름으로 전달 -->
+   <a href="/a2?name=java">
+      <h3>두 번째 페이지로 이동</h3>
+   </a>
+
+   <a href="/a3?name=kim&age=30">
+      <h3>세 번째 페이지로 이동</h3>
+   </a>
+
+   <a th:href="@{/a3(name=${stuName}, age=${score})}">
+      <h3>세 번째 페이지로 이동</h3>
+   </a>
+</body>
+</html>
