@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="/reset.css">
+   <link rel="stylesheet" href="/student_detail.css">
+</head>
+<body>
+   <div class="container">
+      <div>
+         <table border="1">
+            <tr>
+               <td>학번</td>
+               <td>[[${student.num}]]</td>
+               <td>이름</td>
+               <td>[[${student.name}]]</td>
+            </tr>
+            <tr>
+               <td>국어점수</td>
+               <td>[[${student.korScore}]]</td>
+               <td>영어점수</td>
+               <td>[[${student.engScore}]]</td>
+            </tr>
+            <tr>
+               <td>자기소개</td>
+               <td colspan="3">[[${student.intro}]]</td>
+            </tr>
+         </table>
+      </div>
+      <div class="bth-div">
+         <button type="button" value="뒤로가기" onclick="goBack()">뒤로가기</button>
+         <button type="button" value="학생수정" th:onclick="goUpdateForm([[${student.num}]])">학생수정</button>
+         <button type="button" value="학생삭제" th:onclick="goDelete([[${student.num}]])">학생삭제</button>
+         <!-- 함수의 매개변수로 thymleaf를 넣을 땐 대괄호 포함해야 함  -->
+      </div>
+   </div>
+
+   <script>
+      // 뒤로가기
+      function goBack() {
+         // history.back(-1); // 단순히 뒤로가기, 목록 업데이트 X
+         location.href = '/stu_list'; //재호출, 목록 업데이트 함
+      }
+
+      // 학생삭제
+      function goDelete(num) {
+         const result = confirm('삭제할까요?');
+
+         if(result) {
+            location.href = `/stu_delete?num=${num}`;
+         }
+      }
+
+      // 학생수정
+      function goUpdateForm(num) {
+         location.href = `/update_student?num=${num}`;
+      }
+   </script>
+</body>
+</html>
