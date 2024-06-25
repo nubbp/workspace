@@ -39,8 +39,9 @@ public class StudentService {
 //        index를 알기 위해서는 학번 데이터가 필요
         int index = 0;
         for (int i = 0; i < list.size(); i++) {
-            if(list.get(i).getNum() == num);
-            index = i;
+            if(list.get(i).getNum() == num) {
+                index = i;
+            }
         }
         list.remove(index);
     }
