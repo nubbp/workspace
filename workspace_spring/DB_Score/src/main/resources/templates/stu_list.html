@@ -4,6 +4,8 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
+   <link rel="stylesheet" href="/reset.css">
+   <link rel="stylesheet" href="/allCss.css">
 </head>
 <body>
    <div class="container">
@@ -24,7 +26,7 @@
             <th:block th:unless="${#lists.isEmpty(stuList)}">
                <tr th:each="student:${stuList}">
                   <td>[[${student.stuNum}]]</td>
-                  <td><a th:href="@{/student_detail(num=${student.stuNum})}">[[${student.stuName}]]</a></td>
+                  <td><a th:href="@{/stuDetail(stuNum=${student.stuNum})}">[[${student.stuName}]]</a></td>
                   <td>[[${student.korScore}]]</td>
                   <td>[[${student.engScore}]]</td>
                   <td>[[${student.korScore + student.engScore}]]</td>

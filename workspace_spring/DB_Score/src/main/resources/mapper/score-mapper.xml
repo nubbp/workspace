@@ -36,6 +36,30 @@
             , #{intro}
         );
     </insert>
+
+    <select id="getStuDetail" resultMap="student">
+        SELECT STU_NUM
+        , STU_NAME
+        , KOR_SCORE
+        , ENG_SCORE
+        , INTRO
+        FROM score_info
+        WHERE STU_NUM = #{stuNum};
+    </select>
+
+    <update id="update">
+        UPDATE score_info
+        SET STU_NAME = #{stuName}
+        ,   KOR_SCORE = #{korScore}
+        ,   ENG_SCORE = #{engScore}
+        ,   INTRO = #{intro}
+        WHERE STU_NUM = #{stuNum};
+    </update>
+
+    <delete id="delete">
+        DELETE FROM score_info
+        WHERE STU_NUM = #{stuNum};
+    </delete>
 </mapper>
 
 

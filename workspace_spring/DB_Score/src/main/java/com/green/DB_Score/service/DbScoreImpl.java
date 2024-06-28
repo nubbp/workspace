@@ -23,7 +23,22 @@ public class DbScoreImpl implements DbScoreService {
 
     @Override
     public void regStu(DbScoreVO dbScoreVO) {
-        sqlSession.insert("scoreMapper.insert", dbScoreVO);
+        sqlSession.insert("scoreMapper.regStu", dbScoreVO);
+    }
+
+    @Override
+    public DbScoreVO getStuDetail(int stuNum) {
+        return sqlSession.selectOne("scoreMapper.getStuDetail", stuNum);
+    }
+
+    @Override
+    public void updateStu(DbScoreVO dbScoreVO) {
+        sqlSession.delete("scoreMapper.update", dbScoreVO);
+    }
+
+    @Override
+    public void deleteStu(int stuNum) {
+        sqlSession.delete("scoreMapper.delete", stuNum);
     }
 
 

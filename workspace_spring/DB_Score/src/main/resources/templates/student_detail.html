@@ -4,8 +4,50 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
+   <link rel="stylesheet" href="/reset.css">
+   <link rel="stylesheet" href="/allCss.css">
 </head>
 <body>
-   학생정보페이지
+   <div class="container">
+      <div class="table">
+         <table>
+            <tr>
+               <td>학번</td>
+               <td>[[${student.stuNum}]]</td>
+               <td>이름</td>
+               <td>[[${student.stuName}]]</td>
+            </tr>
+            <tr>
+               <td>국어점수</td>
+               <td>[[${student.korScore}]]</td>
+               <td>영어점수</td>
+               <td>[[${student.engScore}]]</td>
+            </tr>
+            <tr>
+               <td>자기소개</td>
+               <td colspan="3">[[${student.intro}]]</td>
+            </tr>
+         </table>
+      </div>
+      <div class="btn-div">
+         <button type="button" onclick="goBack()">뒤로가기</button>
+         <button type="button" th:onclick="modifyStu([[${student.stuNum}]])">학생수정</button>
+         <button type="button" th:onclick="deleteStu([[${student.stuNum}]])">학생삭제</button>
+      </div>
+   </div>
+
+   <script>
+      function goBack() {
+         location.href = "/";
+      }
+
+      function modifyStu(stuNum) {
+         location.href = `/modifyStu?stuNum=${stuNum}`;
+      }
+
+      function deleteStu(stuNum) {
+         location.href = `/deleteStu?stuNum=${stuNum}`;
+      }
+   </script>
 </body>
 </html>
