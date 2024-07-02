@@ -10,4 +10,6 @@ public interface BoardService {
     void writeBoard(BoardVO boardVO);
     BoardVO readOneBoard(int num);
     void updateBoard(BoardVO boardVO);
+    void deleteBoard(int num);
+    void updateReadCnt(int num);
 }

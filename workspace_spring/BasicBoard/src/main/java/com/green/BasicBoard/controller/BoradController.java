@@ -48,6 +48,7 @@ public class BoradController {
 //    board_detail 불러오기
     @GetMapping("boardDetail")
     public String boardDetail(@RequestParam(name = "boardNum") int boardNum, Model model) {
+        board.updateReadCnt(boardNum);
         BoardVO boardVO = board.readOneBoard(boardNum);
         model.addAttribute("board", boardVO);
         return "board_detail";
@@ -56,8 +57,7 @@ public class BoradController {
 //    update_form 불러오기
     @GetMapping("updateForm")
     public String updateForm(@RequestParam(name = "boardNum") int boardNum, Model model) {
-        BoardVO boardVO = board.readOneBoard(boardNum);
-        model.addAttribute("board", boardVO);
+        model.addAttribute("board", board.readOneBoard(boardNum));
         return "update_form";
     }
 
@@ -66,6 +66,13 @@ public class BoradController {
     public String updateBoard(BoardVO boardVO) {
         board.updateBoard(boardVO);
         return "redirect:/boardDetail?boardNum="+boardVO.getBoardNum();
+    }
+
+//    보드 삭제 후 리스트 이동
+    @GetMapping("deleteBoard")
+    public String deleteBoard(BoardVO boardVO) {
+       board.deleteBoard(boardVO.getBoardNum());
+       return "redirect:/";
     }
 
 }
