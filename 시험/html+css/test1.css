@@ -1,13 +1,12 @@
-body {height: 100%}
-
 .container {
-   width: 1200px;
-   display: flex;
-   margin: 0px auto;
+   width: 100vw;
+   display: flex; 
+   align-items: center;
    flex-direction: column;
 }
 
 .header-div {
+   width: 1200px;
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -41,7 +40,6 @@ body {height: 100%}
 }
 
 .img-banner-div {
-   margin-left: -100px;
    height: 250px;
    overflow: hidden;
    position: relative;
@@ -66,7 +64,11 @@ body {height: 100%}
 }
 
 .img-banner-div > img {
-   width: 100%;
+   width: 100vw;
+}
+
+.content-div {
+   width: 1200px;
 }
 
 .img-text button {
@@ -78,7 +80,7 @@ body {height: 100%}
 }
 
 .first-content, .second-content {
-   margin-top: 100px;
+   margin-top: 200px;
 }
 
 .head {
@@ -91,6 +93,10 @@ body {height: 100%}
    font-size: 1.3rem;
    margin-bottom: 10px;
 }
+
+/* .head img {
+   width: 100px;
+} */
 
 .icons, .banners {
    display: flex;
@@ -141,4 +147,45 @@ body {height: 100%}
    position: relative;
    height: 100px;
    margin-bottom: 20px;
+}
+
+.second-content {
+   width: 100%;
+}
+
+.banners {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+
+}
+
+.banner {
+   margin: 0px 15px;
+   position: relative;
+}
+
+.banner img {
+   width: 100%;
+   overflow: hidden;
+}
+
+.banner-text {
+   align-items: center;
+   width: 100%;
+   background-color: rgba(0, 0, 0, 0.6);
+   color: white;
+   position: absolute;
+   bottom: 4px;
+   padding: 20px 10px;
+   position: absolute;
+}
+
+.banner-text h6 {
+   font-size: 0.8rem;
+}
+
+.banner-text p {
+   font-size: 0.8rem;
+   margin-top: 5px;
+   color: #f78e21;
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <div>
+      <input type="text" name="이름" class="input1" placeholder="이름입력">
+
+      <div id = "d1">두번째 div</div>
+
+      <table>
+         <tr>
+            <td>국어점수</td>
+            <td>영어점수</td>
+         </tr>
+         <tr class="aaa">
+            <td>70</td>
+            <td>80</td>
+         </tr>
+      </table>
+   </div>
+
+   <span></span>
+   <script>
+      // 선택한 태그의 속성값 받아오기
+      // input 태그 선택
+      const inputTag = document.querySelector('input');
+      console.log(inputTag.type);
+      console.log(inputTag.name);
+      console.log(inputTag.placeholder);
+      console.log(inputTag.className);
+
+      // 선택한 태그의 속성값 변경
+      inputTag.name = 'java';
+      inputTag.placeholder = '바뀐 내용';
+
+      // '두번째 div' 자바스크립트로 가져와서 console에 출력
+      const d1 = document.querySelector('#d1');
+      console.log(d1.textContent);
+
+      // 국어점수와 영어점수의 합 console에 출력
+      // 1번
+      const aaa1 = document.querySelector('.aaa > td:first-child').textContent;
+      const aaa2 = document.querySelector('.aaa > td:last-child').textContent;
+      const result = Number(aaa1) + Number(aaa2);
+      console.log(result);
+
+      const spanTag = document.querySelector('span');
+      spanTag.textContent = result;
+
+      
+      // 2번
+      const aaa = document.querySelectorAll('.aaa > td');
+      let sum = 0;
+      aaa.forEach(function (score, i) {
+         sum = Number(score.textContent) + sum;
+      });
+      console.log(sum);
+   </script>
+</body>
+</html>
