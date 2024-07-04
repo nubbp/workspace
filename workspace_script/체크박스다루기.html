@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <table border="1">
+      <thead>
+         <tr style="background-color: black; color: white; font-weight: bold; text-align: center;">
+            <td><input id="chkAll" type="checkbox" onclick="checkAll()"></td>
+            <td>주문</td>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td><input type="checkbox" class="chk"></td>
+            <td>샤프</td>
+         </tr>
+         <tr>
+            <td><input type="checkbox" class="chk"></td>
+            <td>지우개</td>
+         </tr>
+         <tr>
+            <td><input type="checkbox" id="chk" class="chk"></td>
+            <td>화이트</td>
+         </tr>
+      </tbody>
+   </table>
+
+   <button type="button" onclick="checked()">체크하기</button>
+   <button type="button" id="unchecked">체크 해제하기</button>
+   
+   <script>
+      const chk = document.querySelector('#chk');
+      
+      function checked() {
+         chk.checked = true;
+      }
+
+      const btn = document.querySelector('#unchecked');
+      btn.addEventListener('click', function(event) {
+         chk.checked = false;
+      })
+
+      // 제목줄의 체크박스가 체크되면 전체 체크박스 체크
+      // 제목줄의 체크박스가 체크 해제되면 전체 체크박스 체크 해제
+      function checkAll() {
+         // 제목줄의 체크박스 체크 여부
+         const chkAll = document.querySelector('#chkAll');
+         const isChecked = chkAll.checked;
+         console.log(isChecked);
+
+         // 모든 체크박스 선택
+         const chks = document.querySelectorAll('.chk');
+
+         if(isChecked) {
+            // 모든 체크박스를 체크
+            for (const chk of chks) {
+               chk.checked = true;
+            }
+         } else {
+            // 모든 체크박스 해제
+            for (const chk of chks) {
+               chk.checked = false;
+            }
+         }
+      }
+   </script>
+</body>
+</html>
