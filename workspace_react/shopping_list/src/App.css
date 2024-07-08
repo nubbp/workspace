@@ -1,0 +1,21 @@
+.App {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.list, .add {
+  background-color: #eeeeee;
+  padding: 10px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+span.item {
+  display: inline-block;
+  width: 200px;
+}
+
+.item-div {
+  margin-bottom: 6px;
+}

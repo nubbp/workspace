@@ -1,0 +1,67 @@
+.red-char {
+   color: red;
+   font-weight: bold;
+}
+
+.container {
+   margin:auto;
+   border: 5px solid #aaaaaa;
+   width: 1200px;
+   padding: 20px;
+}
+
+table {
+   border-collapse: collapse;
+   /* 부모 요소 기준으로 적용 */
+   width: 100%;
+   margin-bottom: 50px;
+}
+
+table, tr, td {
+   border: 3px solid #dedcdc;
+}
+
+tr, td {
+   padding: 10px 6px;
+}
+
+tbody > tr > td:first-child {
+   background-color: #fbfafa;
+}
+
+input {
+   border-color: #dddddd;
+}
+
+.addNum {
+   width: 5em;
+}
+
+.addText {
+   width: 15em;
+}
+
+.num2 {
+   width: 4em;
+}
+
+.year {
+   width: 5em;
+}
+
+.date {
+   width: 3em;
+}
+
+/* .red-text {
+   text-align: right;
+   margin: -30px 15px 5px 0px;
+} */
+
+.flex {
+   display: flex;
+}
+
+.righttext {
+   margin-left: auto;
+}
