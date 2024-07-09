@@ -1,4 +1,4 @@
-package java1;
+package Java_1.src.test;
 
 public class Test3 {
     public static void main(String[] args) {
