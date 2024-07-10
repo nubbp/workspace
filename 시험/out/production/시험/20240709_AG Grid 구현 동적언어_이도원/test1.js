@@ -31,7 +31,9 @@ const item_list = [
 console.log('1번')
 
 for (const item of item_list) {
+  if (item.brand == 'java마켓') {
     console.log(`상품명: ${item.item_name}, 가격: ${item.price}원`);
+  }
 }
 
 //2. 95사이즈를 구매할 수 있는 상품들의 상품명을 콘솔창에 출력하시오.

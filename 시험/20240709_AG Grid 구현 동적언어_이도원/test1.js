@@ -30,8 +30,18 @@ const item_list = [
 //1. 'java마켓'에서 팔고 있는 상품들의 상품명과 가격을 각각 콘솔창에 출력하여라.
 console.log('1번')
 
+for (let i = 0; i < item_list.length; i++) {
+  if (item_list[i].brand == 'java마켓') {
+    console.log(`상품명: ${item_list[i].item_name}, 가격: ${item_list[i].price}원`);
+  }
+}
+
+console.log('');
+
 for (const item of item_list) {
+  if (item.brand == 'java마켓') {
     console.log(`상품명: ${item.item_name}, 가격: ${item.price}원`);
+  }
 }
 
 //2. 95사이즈를 구매할 수 있는 상품들의 상품명을 콘솔창에 출력하시오.
@@ -44,6 +54,16 @@ for (const item of item_list) {
   }
 }
 
+console.log('');
+
+item_list.forEach((item, i) => {
+  item.size.forEach((size, j) => {
+    if (size == 95) {
+      console.log(item.item_name);
+    }
+  })
+})
+
 
 //3. '등록 및 출력' 버튼을 클릭하면 입력 내용 저장 후 콘솔창에 데이터를 출력하시오.
 function addItem(){
@@ -54,6 +74,7 @@ function addItem(){
   const price = document.querySelector('#price').value;
   const brand = document.querySelector('#brand').value;
   const sizeChecked = document.querySelectorAll('.size');
+  // const chks = document.querySelectorAll('.size:checked'); -> class가 'size'인 태그 중 선택된 태그를 chks에 저장
   
   // 사이즈 배열로 만들기........................
   let itemSize = [];
@@ -64,7 +85,7 @@ function addItem(){
   }
 
   // 상품명 공백 불가
-  if (itemName == null) {
+  if (itemName == '') {
     alert('상품명을 입력하세요.');
   }
 
