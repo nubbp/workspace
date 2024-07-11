@@ -35,7 +35,47 @@
   width: 100%;
 }
 
-.item h3 {
+.item img:hover {
+  cursor: pointer;
+}
+
+ h3 {
   font-size: 1.1rem;
   font-weight: bold;
+}
+
+.detail > div> div:first-child {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.detail > div > div:last-child {
+  display: flex;
+  justify-content: center;
+}
+
+.detail-img {
+  margin-right: 20px;
+}
+
+.detail-text {
+  line-height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.detail-text button {
+  padding: 10px 50px;
+  margin-top: 40px;
+  border: none;
+  background-color: #3ec6c6;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.detail-intro {
+  display: inline-block;
 }
