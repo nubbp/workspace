@@ -26,6 +26,8 @@ public class Test5 {
             int num1 = sc.nextInt();
             int num2 = sc.nextInt();
             int num3 = sc.nextInt();
+//            int[] answer = new int[3];
+//            반복문 중첩으로 돌려서 카운트
 
             int strikeCnt = 0;
             int ballCnt = 0;
@@ -53,10 +55,6 @@ public class Test5 {
                 System.out.println((i+1) + "회만에 정답을 맞췄습니다.");
                 break;
             }
-
-
         }
-
-
     }
 }

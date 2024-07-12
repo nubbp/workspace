@@ -1,0 +1,29 @@
+* {margin: 0; padding: 0}
+
+.container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  background-color: black;
+  color: white;
+  margin-bottom: 10px;
+}
+
+li {
+  padding:10px 20px;
+}
+
+table {
+  border: 1px solid black;
+}
+
+td {
+  border: 1px solid black;
+  padding: 10px 20px;
+}

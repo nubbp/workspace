@@ -11,9 +11,11 @@ public class Test4 {
 //        백의 자리
         int hundred = num / 100;
 //        십의 자리
-        int ten = (num - hundred * 100) / 10;
+//        int ten = (num - hundred * 100) / 10;
+        int ten = (num % 100) / 10;
 //        일의 자리
-        int one = num - hundred * 100 - ten * 10;
+//        int one = num - hundred * 100 - ten * 10;
+        int one = num % 10;
 
         int cnt = 0;
 
@@ -27,6 +29,7 @@ public class Test4 {
             cnt++;
         }
 
+        System.out.println("백의 자리: " + hundred + ", 십의 자리: " + ten + ", 일의 자리: " + one);
         System.out.println("박수 " + cnt + "번");
     }
 }

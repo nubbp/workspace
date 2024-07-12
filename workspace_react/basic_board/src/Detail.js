@@ -5,12 +5,14 @@ const Detail = ({boardList}) => {
    console.log(id);
 
    const navigate = useNavigate();
+   let boardCnt = 0;
       
    return (
       <div className="detail-container">
          {
             boardList.map((board, i) => {
-               if (id == i+1) {
+               if (id == board.boardNum) {
+                  boardCnt = i;
                   return (
                      <table className='detail-table'>
                         <tr>
@@ -37,9 +39,8 @@ const Detail = ({boardList}) => {
          
       <button type="button" onClick={() => {navigate(-1);}}>뒤로가기</button>
       <button type="button" onClick={() => {
-         const deleteYN = confirm('해당 게시글을 삭제하시겠습니까?');
-         if (deleteYN) {
-            boardList.splice(id-1,1);
+         if (window.confirm('해당 게시글을 삭제하시겠습니까?')) {
+            boardList.splice(boardCnt,1);
             navigate('/');
          }
       }}>삭제</button>
