@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
-<mapper namespace="boardMapper">
+<mapper namespace="axiosMapper">
 
     <!-- REACT_BOARD 테이블의 조회된 데이터는 BoardVO 자료형을 통해서 가져옴-->
 	<resultMap id="board" type="com.green.ReactBoard.vo.BoardVO">
@@ -14,21 +14,18 @@
         <result column="CREATE_DATE" property="createDate" />
     </resultMap>
 
-    <select id="getBoardList" resultMap="board">
+    <select id="getList" resultMap="board">
         SELECT BOARD_NUM
             , BOARD_TITLE
-            , BOARD_CONTENT
-            , BOARD_WRITER
-            , CREATE_DATE
         FROM REACT_BOARD;
     </select>
 
     <select id="getBoard" resultMap="board">
         SELECT BOARD_NUM
-        , BOARD_TITLE
-        , BOARD_CONTENT
-        , BOARD_WRITER
-        , CREATE_DATE
+            , BOARD_TITLE
+            , BOARD_CONTENT
+            , BOARD_WRITER
+            , CREATE_DATE
         FROM REACT_BOARD
         WHERE BOARD_NUM = #{boardNum};
     </select>

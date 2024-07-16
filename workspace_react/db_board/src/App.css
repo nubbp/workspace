@@ -13,3 +13,12 @@ td {
   text-align: center;
   padding: 10px;
 }
+
+.btn-div {
+  text-align: center;
+  margin: 20px 0px;
+}
+
+.btn-div button {
+  padding: 5px;
+}

@@ -18,4 +18,10 @@ public class BoardServiceImpl implements BoardService {
         List<BoardVO> boardList =  sqlSession.selectList("boardMapper.getBoardList");
         return boardList;
     }
+
+//    게시글 상세 정보 조회
+    @Override
+    public BoardVO getBoard(int boardNum) {
+        return sqlSession.selectOne("boardMapper.getBoard", boardNum);
+    }
 }
