@@ -27,4 +27,16 @@ public class BoardController {
     public BoardVO getBoard(@PathVariable("boardNum") int boardNum) {
         return boardService.getBoard(boardNum);
     }
+
+    @PostMapping("/regBoard")
+    public void regBoard(@RequestBody BoardVO boardVO) {
+        System.out.println(boardVO);
+        boardService.regBoard(boardVO);
+    }
+
+    @DeleteMapping("/deleteBoard/{boardNum}")
+    public void deleteBoard(@PathVariable("boardNum") int boardNum) {
+        System.out.println(boardNum);
+        boardService.deleteBoard(boardNum);
+    }
 }

@@ -32,6 +32,23 @@
         FROM REACT_BOARD
         WHERE BOARD_NUM = #{boardNum};
     </select>
+
+    <insert id="regBoard">
+        INSERT INTO react_board (
+            BOARD_TITLE
+            , BOARD_WRITER
+            , BOARD_CONTENT
+        ) VALUES (
+            #{boardTitle}
+            , #{boardWriter}
+            , #{boardContent}
+        );
+    </insert>
+
+    <delete id="deleteBoard">
+        DELETE FROM react_board
+        WHERE BOARD_NUM = #{boardNum}
+    </delete>
 </mapper>
 
 

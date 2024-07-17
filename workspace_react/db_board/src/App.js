@@ -25,8 +25,11 @@ function App() {
         <Route path='/axios' element={<AxiosTest />}/>
         {/* 게시글 목록 페이지 */}
         <Route path='/' element={<BoardList />} />
+        {/* 게시글 상세 페이지 */}
         <Route path='/detail/:boardNum' element={<Detail />} />
+        {/* 게시글 작성 페이지 */}
         <Route path='/writeForm' element={<WriteForm />} />
+        <Route path='/deleteBoard/:boardNum' element={<BoardList />} />
       </Routes>
     </div>
   );

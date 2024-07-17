@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="stuMapper">
+	<resultMap id="student" type="com.green.ReactStudent.VO.StuVO">
+        <id column="STU_NUM" property="stuNum" />
+        <id column="STU_NAME" property="stuName" />
+        <id column="KOR_SCORE" property="korScore" />
+        <id column="ENG_SCORE" property="engScore" />
+        <id column="MATH_SCORE" property="mathScore" />
+        <id column="STU_AGE" property="stuAge" />
+        <id column="STU_TEL" property="stuTel" />
+        <id column="STU_ADDR" property="stuAddr" />
+    </resultMap>
+
+    <select id="stuList" resultMap="student">
+        SELECT STU_NUM
+            , STU_NAME
+            , KOR_SCORE
+            , ENG_SCORE
+            , MATH_SCORE
+            , STU_AGE
+            , STU_TEL
+            , STU_ADDR
+        FROM react_student;
+    </select>
+
+    <select id="studentDetail" resultMap="student">
+        SELECT STU_NUM
+        , STU_NAME
+        , KOR_SCORE
+        , ENG_SCORE
+        , MATH_SCORE
+        , STU_AGE
+        , STU_TEL
+        , STU_ADDR
+        FROM react_student
+        WHERE STU_NUM = #{stuNum};
+    </select>
+
+    <insert id="regStudent">
+        INSERT INTO react_student (
+            STU_NAME
+            , STU_AGE
+            , STU_TEL
+            , STU_ADDR
+        ) VALUES (
+            #{stuName}
+            , #{stuAge}
+            , #{stuTel}
+            , #{stuAddr}
+        );
+    </insert>
+
+    <delete id="deleteStudent">
+        DELETE FROM react_student
+        WHERE STU_NUM = #{stuNum}
+    </delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
