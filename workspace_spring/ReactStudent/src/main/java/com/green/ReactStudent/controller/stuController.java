@@ -38,4 +38,16 @@ public class stuController {
     public void deleteStudent(@PathVariable("stuNum") int stuNum) {
         studentService.deleteStudent(stuNum);
     }
+
+    @GetMapping("/getScore/{stuNum}")
+    public StuVO getScore(@PathVariable("stuNum") int stuNum) {
+        return studentService.getStudentDetail(stuNum);
+    }
+
+    @PostMapping("/regScore")
+    public void regScore(@RequestBody StuVO stuVO) {
+        System.out.println(stuVO);
+        studentService.updateScroe(stuVO);
+    }
+
 }

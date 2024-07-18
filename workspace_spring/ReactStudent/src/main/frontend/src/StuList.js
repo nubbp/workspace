@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const StuList = () => {
 
+   // 학생 목록을 저장할 state 변수
    const [studentList, setStudentList] = useState([]);
    const navigate = useNavigate();
 
@@ -21,6 +22,7 @@ const StuList = () => {
 
    return (
       <div className="list-div">
+         <p>총 {studentList.length}명</p>
          <table>
             <thead>
                <tr>
@@ -34,17 +36,23 @@ const StuList = () => {
             </thead>
             <tbody>
                {
+                  studentList.length == 0 ?
+                  <tr>
+                     <td colSpan={6}>조회된 데이터가 없습니다</td>
+                  </tr>
+                  :
                   studentList.map((student, i) => {
+                     const avg = (student.korScore + student.engScore + student.mathScore)/3;
                      return (
                         <tr key={{i}}>
-                           <td>{student.stuNum}</td>
+                           <td>{studentList.length-i}</td>
                            <td><span onClick={() => {
                               navigate(`/stuDetail/${student.stuNum}`);
                            }}>{student.stuName}</span></td>
                            <td>{student.korScore}</td>
                            <td>{student.engScore}</td>
                            <td>{student.mathScore}</td>
-                           <td>{(student.korScore + student.engScore + student.mathScore)/3.0}</td>
+                           <td>{Math.round(avg * 100)/100}</td>
                         </tr>
                      );
                   })

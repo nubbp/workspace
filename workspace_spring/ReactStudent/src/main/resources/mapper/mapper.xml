@@ -23,6 +23,7 @@
             , STU_AGE
             , STU_TEL
             , STU_ADDR
+            , (KOR_SCORE + ENG_SCORE + MATH_SCORE)/3.0 AS TOTAL_SCORE
         FROM react_student;
     </select>
 
@@ -45,13 +46,27 @@
             , STU_AGE
             , STU_TEL
             , STU_ADDR
+            , KOR_SCORE
+            , ENG_SCORE
+            , MATH_SCORE
         ) VALUES (
             #{stuName}
             , #{stuAge}
             , #{stuTel}
             , #{stuAddr}
+            , 0
+            , 0
+            , 0
         );
     </insert>
+
+    <update id="regScore">
+        UPDATE REACT_STUDENT
+            SET KOR_SCORE = #{korScore}
+                , ENG_SCORE = #{engScore}
+                , MATH_SCORE = #{mathScore}
+            WHERE STU_NUM = #{stuNum}
+    </update>
 
     <delete id="deleteStudent">
         DELETE FROM react_student

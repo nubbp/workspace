@@ -3,9 +3,10 @@ import './reset.css';
 import './App.css';
 import StuList from './StuList';
 import RegStu from './RegStu';
-import Score from './Score';
 import StuDetail from './StuDetail';
 import DelStuList from './DelStuList';
+import RegScoreList from './RegScoreList';
+import RegScore from './RegScore';
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
           <li><span onClick={() => {navigate('/')}}>학생정보조회</span></li>
           <li><span onClick={() => {navigate('/regStu')}}>학생등록</span></li>
           <li><span onClick={() => {navigate('delStu')}}>학생삭제</span></li>
-          <li><span onClick={() => {navigate('/score')}}>성적관리</span></li>
+          <li><span onClick={() => {navigate('/regScoreList')}}>성적관리</span></li>
         </ul>
       </div>
       <div className='content-div'>
@@ -32,7 +33,8 @@ function App() {
           {/* 학생삭제페이지 */}
           <Route path='/delStu' element={<DelStuList />} />
           {/* 성적관리페이지 */}
-          <Route path='/score' element={<Score />} />
+          <Route path='/regScoreList' element={<RegScoreList />} />
+          <Route path='/regScore/:stuNum' element={<RegScore />} />
         </Routes>
       </div>
     </div>

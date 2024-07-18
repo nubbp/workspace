@@ -1,7 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
+@font-face {
+	font-family: 'Ownglyph_eunbyul21-Rg';
+	src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-2@1.0/Ownglyph_eunbyul21-Rg.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'TheJamsil5Bold';
+	src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+}
 
 
 html, body, div, span, applet, object, iframe,
@@ -51,7 +62,7 @@ table {
 *{
   box-sizing: border-box;
 	/* font-family: "Noto Sans", sans-serif; */
-	font-family: "Montserrat", sans-serif; 
+	font-family: 'TheJamsil5Bold', "Montserrat", sans-serif; 
 }
 
 

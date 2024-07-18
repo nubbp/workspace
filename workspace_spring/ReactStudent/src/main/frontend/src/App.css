@@ -54,7 +54,46 @@ td {
   padding: 10px 20px;
 }
 
+thead {
+  background-color: #3d3d3d;
+  color: white;
+}
+
+tbody > tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+
 .btn-div {
   text-align: center;
   margin-top: 30px;
+}
+
+.reg-table-div {
+  text-align: center;
+}
+.reg-table-div table {
+  border: none;
+}
+.reg-table-div td {
+  border: none;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.reg-table-div input {
+  width: 100%;
+  padding: 5px;
+}
+
+button {
+  padding: 5px 10px;
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+
+.list-div > p {
+  font-size: 14px;
+  text-align: end;
+  margin-bottom: 10px;
 }

@@ -10,4 +10,5 @@ public interface StudentService {
     void regStudent(StuVO stuVO);
     List<StuVO> getDelList();
     void deleteStudent(int stuNum);
+    void updateScroe(StuVO stuVO);
 }

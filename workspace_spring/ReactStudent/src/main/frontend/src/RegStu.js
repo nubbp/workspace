@@ -8,8 +8,8 @@ const RegStu = () => {
    const [newStudent, setNewStudent] = useState({
       stuName: '',
       stuAge: 0,
-      stuAddr: '',
-      stuTel: ''
+      stuTel: '',
+      stuAddr: ''
    });
 
    function regStudent(e) {
@@ -20,7 +20,15 @@ const RegStu = () => {
       );
    };
 
-   function regButtonClick() {
+   function regButtonClick(e) {
+
+      const nameInputTag = document.querySelector('input[name="stuName"]');
+      if (nameInputTag.value == '') {
+         alert('이름은 필수입력입니다.');
+         nameInputTag.focus();
+         return ;
+      }
+
       axios
       .post('/regStudent', newStudent)
       .then((res) => {
@@ -28,25 +36,42 @@ const RegStu = () => {
       })
       .catch((error) => {
          alert('등록 중에 오류 발생');
+         alert(error);
          console.log(error);
       });
    }
 
    return (
       <div className="reg-div">
-         <div>
-            <p><span>이름</span><input type="text" name="stuName" onChange={(e) => {
-               regStudent(e);
-            }}/></p>
-            <p><span>나이</span><input type="text" name="stuAge" onChange={(e) => {
-               regStudent(e);
-            }}/></p>
-            <p><span>연락처</span><input type="text" name="stuTel" onChange={(e) => {
-               regStudent(e);
-            }}/></p>
-            <p><span>주소</span><input type="text" name="stuAddr" onChange={(e) => {
-               regStudent(e);
-            }}/></p>
+         <div className="reg-table-div">
+            <table>
+               <tbody>
+                  <tr>
+                     <td>이름</td>
+                     <td>
+                        <input type="text" name="stuName" onChange={(e) => {regStudent(e);}}/>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>나이</td>
+                     <td>
+                        <input type="text" name="stuAge" onChange={(e) => {regStudent(e);}}/>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>연락처</td>
+                     <td>
+                        <input type="text" name="stuTel" onChange={(e) => {regStudent(e);}}/>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>주소</td>
+                     <td>
+                        <input type="text" name="stuAddr" onChange={(e) => {regStudent(e);}}/>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
          </div>
          <div className="btn-div">
             <button type="button" onClick={(e) => {
