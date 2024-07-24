@@ -1,15 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import * as boardApi from "../apis/boardApi";
 
-const List = () => {
+const List = ({loginInfo}) => {
 
    const [boardList, setBoardList] = useState([]);
    const navigate = useNavigate();
 
    useEffect(() => {
-      axios
-      .get('/board/list')
+      boardApi.getBoardList()
       .then((res) => {
          setBoardList(res.data);
       })
@@ -63,9 +63,15 @@ const List = () => {
          </table>
       </div>
       <div className="btn-div">
-         <button type='button' onClick={() => {
-            navigate('/writeForm');
-         }}>글쓰기</button>
+         {
+            loginInfo.memID == null ?
+            null
+            :
+            <button type='button' onClick={() => {
+               navigate('/writeForm');
+            }}>글쓰기</button>
+
+         }
       </div>
    </div>
    );

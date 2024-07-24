@@ -12,9 +12,28 @@
     </resultMap>
 
     <select id="getBoardList" resultMap="board">
-        SELECT TITLE, MEM_ID, CREATE_DATE
+        SELECT BOARD_NUM, TITLE, MEM_ID, CREATE_DATE
         FROM BOARD;
     </select>
+
+    <select id="getBoardDetail" resultMap="board">
+        SELECT BOARD_NUM, TITLE, MEM_ID, CREATE_DATE, CONTENT
+        FROM BOARD
+        WHERE BOARD_NUM = #{boardNum};
+    </select>
+
+    <insert id="regBoard">
+        INSERT INTO BOARD (
+            TITLE
+            , CONTENT
+            , BOARD_NUM
+        ) VALUES (
+            #{title}
+            , #{content}
+            , #{boardNum}
+        )
+    </insert>
+
 </mapper>
 
 

@@ -4,8 +4,6 @@ const BoardDetail = () => {
 
    const [board, setBoard] = useState({});
 
-   
-
    return (
       <div>
          <table>

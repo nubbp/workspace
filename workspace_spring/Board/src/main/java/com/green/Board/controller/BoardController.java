@@ -3,9 +3,7 @@ package com.green.Board.controller;
 import com.green.Board.service.BoardService;
 import com.green.Board.vo.BoardVO;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,9 +20,14 @@ public class BoardController {
         return boardService.getBoardList();
     }
 
-    @GetMapping("/detail")
-    public String getBoardDetail() {
-        return "게시글 상세";
+    @GetMapping("/detail/{boardNum}")
+    public BoardVO getBoardDetail(@PathVariable(name = "boardNum") int boardNum) {
+        return boardService.getBoardDetail(boardNum);
+    }
+
+    @PostMapping("/regBoard")
+    public void regBoard(@RequestBody BoardVO boardVO) {
+        boardService.regBoard(boardVO);
     }
 
 }
