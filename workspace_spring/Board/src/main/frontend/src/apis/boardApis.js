@@ -7,7 +7,18 @@ export const getBoardList = () => {
    return response;
 }
 
+
+export const BoardDetail = (data) => {
+   const response = axios.get(`/board/detail/${data}`);
+   return response;
+}
+
 export const regBoard = (data) => {
    const response = axios.post('/board/regBoard', data);
+   return response;
+}
+
+export const delBoard = (data) => {
+   const response = axios.delete(`/board/deleteBoard/${data}`);
    return response;
 }

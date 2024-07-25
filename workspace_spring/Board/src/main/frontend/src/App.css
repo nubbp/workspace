@@ -33,20 +33,28 @@ h1 {padding: 40px 0px 30px 0px;}
 
 .table-div { margin-top: 10px; }
 
-.table-div > table {
+table {
    border: 1px solid black;
-   width: 500px;
+   width: 550px;
    text-align: center;
 }
 
-.table-div > table td {
+table td {
    border: 1px solid black;
    padding: 10px;
 }
 
+table input, table textarea {
+   width: 100%;
+}
+
 .btn-div {
    text-align: center;
-   margin-top: 20px;
+   margin: 20px 0px;
+}
+
+.btn-div button {
+   margin: 0px 5px;
 }
 
 /* disabled 속성이 있을때 적용 */
@@ -71,7 +79,7 @@ button:hover {
    top: 2px;
 }
 
-input, select {
+input, select, textarea {
    border: none;
    padding: 5px 10px;
 }

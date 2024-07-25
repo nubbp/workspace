@@ -25,9 +25,9 @@ function App() {
 
   return (
     <div className="container">
-          {
+          {/* {
             loginInfo.memID == null ? <div>없음</div> : <div>있음</div>
-          }
+          } */}
       <div className='login-bar'>
         <div>
           {

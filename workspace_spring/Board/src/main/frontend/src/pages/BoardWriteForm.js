@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import * as boardApi from "../apis/boardApi";
+import * as boardApi from "../apis/boardApis";
 
 const BoardWriteForm = ({loginInfo}) => {
-
 
    console.log(loginInfo.memID);
 
@@ -42,7 +41,7 @@ const BoardWriteForm = ({loginInfo}) => {
                </tr>
                <tr>
                   <td>내용</td>
-                  <td><input type="text" name="content" onChange={(e) => {writeBoard(e)}} /></td>
+                  <td><textarea name="content" onChange={(e) => {writeBoard(e)}} /></td>
                </tr>
             </tbody>
          </table>

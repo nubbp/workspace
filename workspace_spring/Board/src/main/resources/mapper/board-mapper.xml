@@ -26,13 +26,26 @@
         INSERT INTO BOARD (
             TITLE
             , CONTENT
-            , BOARD_NUM
+            , MEM_ID
         ) VALUES (
             #{title}
             , #{content}
-            , #{boardNum}
+            , #{memID}
         )
     </insert>
+
+    <delete id="deleteBoard">
+        DELETE FROM board
+        WHERE BOARD_NUM = #{boardNum};
+    </delete>
+
+    <update id="updateBoard">
+        UPDATE board
+        SET
+        TITLE = #{title}
+        , CONTENT = #{content}
+        WHERE BOARD_NUM = #{boardNum};
+    </update>
 
 </mapper>
 

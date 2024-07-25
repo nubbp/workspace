@@ -3,10 +3,12 @@ package com.green.Board.controller;
 import com.green.Board.service.BoardService;
 import com.green.Board.vo.BoardVO;
 import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/board")
 public class BoardController {
@@ -27,7 +29,14 @@ public class BoardController {
 
     @PostMapping("/regBoard")
     public void regBoard(@RequestBody BoardVO boardVO) {
+        log.info("============");
+        log.info("====== boardController.insertBoard() 실행 ======");
         boardService.regBoard(boardVO);
+    }
+
+    @DeleteMapping("/deleteBoard/{boardNum}")
+    public void deleteBoard(@PathVariable(name = "boardNum") int boardNum) {
+        boardService.deleteBoard(boardNum);
     }
 
 }
