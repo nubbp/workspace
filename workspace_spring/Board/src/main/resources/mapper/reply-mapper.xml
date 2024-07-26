@@ -11,11 +11,16 @@
         <result column="BOARD_NUM"      property="boardNum" />
     </resultMap>
 
-        <select id="replyList" resultMap="reply">
-                SELECT REPLY_NUM, REPLY_CONTENT, MEM_ID, REPLY_DATE, BOARD_NUM
-                FROM BOARD_REPLY
-                WHERE BOARD_NUM = #{boardNum}
-        </select>
+    <select id="replyList" resultMap="reply">
+        SELECT REPLY_NUM, REPLY_CONTENT, MEM_ID, REPLY_DATE, BOARD_NUM
+        FROM BOARD_REPLY
+        WHERE BOARD_NUM = #{boardNum}
+    </select>
+
+    <insert id="regReply">
+        INSERT INTO board_reply (REPLY_CONTENT, MEM_ID, BOARD_NUM)
+        VALUES (#{replyContent}, #{memID}, #{boardNum});
+    </insert>
 </mapper>
 
 

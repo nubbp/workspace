@@ -7,6 +7,7 @@ import LoginForm from './pages/LoginForm';
 import BoardDetail from './pages/BoardDetail';
 import BoardWriteForm from './pages/BoardWriteForm';
 import { useEffect, useState } from 'react';
+import UpdateForm from './pages/UpdateForm';
 
 function App() {
 
@@ -60,8 +61,9 @@ function App() {
         <Route path='/' element={<List loginInfo={loginInfo} />} />
         <Route path='/regMemberForm' element={<RegMemberForm />} />
         <Route path='/loginForm' element={<LoginForm setLoginInfo={setLoginInfo} />} />
-        <Route path='/detail/:boardNum' element={<BoardDetail />} />
+        <Route path='/detail/:boardNum' element={<BoardDetail loginInfo={loginInfo} />} />
         <Route path='/writeForm' element={<BoardWriteForm loginInfo={loginInfo} />} />
+        <Route path='/updateForm/:boardNum' element={<UpdateForm />} />
       </Routes>
     </div>
   );

@@ -70,7 +70,6 @@ const List = ({loginInfo}) => {
             <button type='button' onClick={() => {
                navigate('/writeForm');
             }}>글쓰기</button>
-
          }
       </div>
    </div>

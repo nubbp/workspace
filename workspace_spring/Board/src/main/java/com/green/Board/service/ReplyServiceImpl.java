@@ -17,4 +17,9 @@ public class ReplyServiceImpl implements ReplyService {
     public List<ReplyVO> getReplyList(int boardNum) {
         return sqlSession.selectList("replyMapper.replyList", boardNum);
     }
+
+    @Override
+    public void regReply(ReplyVO replyVO) {
+        sqlSession.insert("replyMapper.regReply", replyVO);
+    }
 }

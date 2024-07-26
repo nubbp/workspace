@@ -46,7 +46,6 @@
         , CONTENT = #{content}
         WHERE BOARD_NUM = #{boardNum};
     </update>
-
 </mapper>
 
 
