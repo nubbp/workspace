@@ -21,6 +21,16 @@
         INSERT INTO board_reply (REPLY_CONTENT, MEM_ID, BOARD_NUM)
         VALUES (#{replyContent}, #{memID}, #{boardNum});
     </insert>
+
+    <delete id="delReply">
+        DELETE FROM BOARD_REPLY
+        WHERE REPLY_NUM = #{replyNum}
+    </delete>
+
+    <delete id="delBoardReply">
+        DELETE FROM BOARD_REPLY
+        WHERE BOARD_NUM = #{boardNum}
+    </delete>
 </mapper>
 
 

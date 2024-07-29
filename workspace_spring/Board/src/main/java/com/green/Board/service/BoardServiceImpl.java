@@ -26,10 +26,11 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public void regBoard(BoardVO boardVO) {
         sqlSession.insert("boardMapper.regBoard", boardVO);
-    }
+    }p
 
     @Override
     public void deleteBoard(int boardNum) {
+        sqlSession.delete("replyMapper.delBoardReply", boardNum);
         sqlSession.delete("boardMapper.deleteBoard", boardNum);
     }
 }

@@ -5,7 +5,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const BoardDetail = ({loginInfo}) => {
+   // console.log('BoardDetail 컴포넌트 실행');
    const {boardNum} = useParams();
+   const [deleteState, setDeleteState] = useState({});
+   // const [cnt, setCnt] = useState(0);
    const [board, setBoard] = useState({});
    const [replys, setReplys] = useState([]);
    const [newReply, setNewReply] = useState({
@@ -37,7 +40,8 @@ const BoardDetail = ({loginInfo}) => {
 
    // db에서 데이터 조회 여러 개 동시에 실행하기
    useEffect(() => {
-      axios.all([boardApi.BoardDetail(boardNum), replyApi.getReplyList(boardNum)])
+      axios.all([boardApi.BoardDetail(boardNum)
+         , replyApi.getReplyList(boardNum)])
       .then(axios.spread((res1, res2) => {
          setBoard(res1.data);
          setReplys(res2.data);
@@ -46,21 +50,23 @@ const BoardDetail = ({loginInfo}) => {
          alert(error1);
          alert(error2);
       }));
-   }, []);
+   }, [newReply, deleteState]);
 
    // 삭제하기 버튼
    function deleteBtn() {
-      boardApi.delBoard(boardNum)
-      .then((res) => {
-         if (window.confirm("게시글을 삭제합니다")) {
-            navigate('/');
-         } else {
-            return ;
-         }
-      })
-      .catch((error) => {
-         alert(error);
-      })
+      if (window.confirm("게시글을 삭제합니다")) {
+         // replyApi.delBoardReply(boardNum)
+         // .then(()=>{})
+         // .catch((error) => {alert("댓글 삭제 중 오류 발생")});
+
+         boardApi.delBoard(boardNum)
+         .then((res) => {
+         })
+         .catch((error) => {
+            alert(error);
+         });
+         navigate('/');
+      } else {return ;}
    }
 
    // 리플 정보 갱신
@@ -77,12 +83,27 @@ const BoardDetail = ({loginInfo}) => {
       .then((res) => {
          console.log(newReply);
          alert("댓글 등록 완");
-         navigate(0);
+         document.querySelector('input[type="text"]'.value);
+         setNewReply( {
+            ...newReply,
+            replyContent:''
+         })
+         // setCnt(cnt + 1);
+         // navigate(0);
       })
       .catch((error) => {
          console.log(newReply);
          alert(error);
       });
+   }
+
+   // 리플 삭제
+   function deleteReplyBtn(data) {
+      replyApi.delReply(data)
+      .then((res) => {
+         setDeleteState({});
+      })
+      .catch((error) => {})
    }
 
    return (
@@ -124,7 +145,7 @@ const BoardDetail = ({loginInfo}) => {
                   <tbody>
                      <tr>
                         <td>댓글 작성</td>
-                        <td><input type="text" name="replyContent" onChange={(e) => {writeReply(e);}} /></td>
+                        <td><input value={newReply.replyContent} type="text" name="replyContent" onChange={(e) => {writeReply(e);}} /></td>
                         <td> <button type="button" onClick={() => {replyRegBtn();}}>등록</button></td>
                      </tr>
                   </tbody>
@@ -138,7 +159,7 @@ const BoardDetail = ({loginInfo}) => {
                      <p>─────────────────────────────────────</p>
                      <p>{reply.replyDate}</p>
                      <p>{reply.memID}</p>
-                     <p>{reply.replyContent}</p>
+                     <p>{reply.replyContent} <button type="button" onClick={(e) => {deleteReplyBtn(reply.replyNum);}}>삭제</button></p>
                      <p>─────────────────────────────────────</p>
                   </div>
                );

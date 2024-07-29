@@ -26,4 +26,15 @@ public class ReplyController {
         System.out.println(replyVO);
         replyService.regReply(replyVO);
     }
+
+    @DeleteMapping("/deleteReply/{replyNum}")
+    public void delReply(@PathVariable("replyNum") int replyNum) {
+        System.out.println(replyNum);
+        replyService.delReply(replyNum);
+    }
+
+    @DeleteMapping("/deleteBoardReply/{replyNum}")
+    public void delBoardReply(@PathVariable("boardNum") int boardNum) {
+        replyService.delBoardReply(boardNum);
+    }
 }
