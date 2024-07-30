@@ -3,7 +3,7 @@
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <mapper namespace="boardMapper">
-	<resultMap id="board" type="com.green.Board.vo.BoardVO">
+    <resultMap id="board" type="com.green.Board.vo.BoardVO">
         <id     column="BOARD_NUM"      property="boardNum" />
         <result column="TITLE"          property="title" />
         <result column="CONTENT"        property="content" />
@@ -13,7 +13,17 @@
 
     <select id="getBoardList" resultMap="board">
         SELECT BOARD_NUM, TITLE, MEM_ID, CREATE_DATE
-        FROM BOARD;
+        FROM BOARD
+
+        <if test='searchValue != null and !searchValue.equals("")'>
+            WHERE ${searchType} LIKE CONCAT('%', #{searchValue}, '%')
+        </if>
+        ORDER BY CREATE_DATE DESC
+    </select>
+
+    <select id="getSearchList" resultMap="board">
+        SELECT BOARD_NUM, TITLE, MEM_ID, CREATE_DATE
+        FROM BOARD
     </select>
 
     <select id="getBoardDetail" resultMap="board">

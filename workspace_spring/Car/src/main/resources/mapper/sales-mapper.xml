@@ -11,6 +11,13 @@
         <result column="SALE_DATE" property="saleDate" />
         <result column="MODEL_NUM" property="modelNum" />
     </resultMap>
+    
+    <select id="getSalesList" resultMap="sales">
+        SELECT SALES_NUM, BUYER_NAME, BUYER_PHONE, COLOR, SALE_DATE, MODEL_NUM
+        FROM SALES_INFO
+    </select>
+
+
 </mapper>
 
 

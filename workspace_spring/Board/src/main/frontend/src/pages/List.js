@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as boardApi from "../apis/boardApis";
@@ -7,9 +6,13 @@ const List = ({loginInfo}) => {
 
    const [boardList, setBoardList] = useState([]);
    const navigate = useNavigate();
+   const [searchData, setSearchData] = useState({
+      searchType: 'TITLE',
+      searchValue: ''
+   });
 
    useEffect(() => {
-      boardApi.getBoardList()
+      boardApi.getBoardList(searchData)
       .then((res) => {
          setBoardList(res.data);
       })
@@ -18,15 +21,30 @@ const List = ({loginInfo}) => {
       })
    }, []);
 
+   function searchBoard() {
+      boardApi.getBoardList(searchData)
+      .then((res) => {
+         setBoardList(res.data);
+      })
+      .catch((error) => {alert(error)});
+   }
+
+   function changeSearchData(e) {
+      setSearchData({
+         ...searchData,
+         [e.target.name] : e.target.value
+      })
+   }
 
    return(
       <div className='list-div'>
          <div className='search-tool'>
-            <select>
-               <option value="title">제목</option>
+            <select name="searchType" onChange={(e) => {changeSearchData(e)}}>
+               <option value="TITLE" >제목</option>
+               <option value="MEM_ID" >작성자</option>
             </select>
-            <input type='' />
-            <button type='button'>검색</button>
+            <input type='text' name="searchValue" onChange={(e) => {changeSearchData(e)}} />
+            <button type='button' onClick={() => {searchBoard();}}>검색</button>
          </div>
       <div className='table-div'>
          <table>

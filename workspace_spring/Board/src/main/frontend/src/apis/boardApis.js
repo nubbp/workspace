@@ -2,8 +2,8 @@
 import axios from "axios"
 
 // 게시글 목록 조회
-export const getBoardList = () => {
-   const response = axios.get('/board/list');
+export const getBoardList = (data) => {
+   const response = axios.post('/board/list', data);
    return response;
 }
 
@@ -21,4 +21,8 @@ export const regBoard = (data) => {
 export const delBoard = (data) => {
    const response = axios.delete(`/board/deleteBoard/${data}`);
    return response;
+}
+
+export const updateBoard = (data) => {
+   return axios.put('/board/updateBoard', data);
 }

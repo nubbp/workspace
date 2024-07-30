@@ -73,7 +73,7 @@ const BoardDetail = ({loginInfo}) => {
    function writeReply(e) {
       setNewReply({
          ...newReply,
-         [e.target.name] : e.target.value,
+         [e.target.name] : e.target.value
       })
    }
 

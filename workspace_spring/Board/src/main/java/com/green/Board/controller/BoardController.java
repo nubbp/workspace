@@ -2,8 +2,10 @@ package com.green.Board.controller;
 
 import com.green.Board.service.BoardService;
 import com.green.Board.vo.BoardVO;
+import com.green.Board.vo.SearchVO;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,9 +19,10 @@ public class BoardController {
     private BoardService boardService;
 
 //    게시글 목록
-    @GetMapping("/list")
-    public List<BoardVO> getBoardList() {
-        return boardService.getBoardList();
+    @PostMapping("/list")
+    public List<BoardVO> getBoardList(@RequestBody SearchVO searchVO) {
+        log.info(searchVO.toString());
+        return boardService.getBoardList(searchVO);
     }
 
     @GetMapping("/detail/{boardNum}")
@@ -37,6 +40,11 @@ public class BoardController {
     @DeleteMapping("/deleteBoard/{boardNum}")
     public void deleteBoard(@PathVariable(name = "boardNum") int boardNum) {
         boardService.deleteBoard(boardNum);
+    }
+
+    @PutMapping("/updateBoard")
+    public void updateBoard(@RequestBody BoardVO boardVO) {
+        boardService.updateBoard(boardVO);
     }
 
 }
