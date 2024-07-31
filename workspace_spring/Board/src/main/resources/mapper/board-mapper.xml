@@ -18,7 +18,9 @@
         <if test='searchValue != null and !searchValue.equals("")'>
             WHERE ${searchType} LIKE CONCAT('%', #{searchValue}, '%')
         </if>
-        ORDER BY CREATE_DATE DESC
+        ORDER BY BOARD_NUM DESC
+<!--        LIMIT #{displayDataCnt}, #{displayDataCnt} * (#{nowPage} - 1)-->
+        LIMIT 5, 5
     </select>
 
     <select id="getSearchList" resultMap="board">
@@ -56,6 +58,11 @@
         , CONTENT = #{content}
         WHERE BOARD_NUM = #{boardNum};
     </update>
+
+    <select id="getBoardCnt" resultType="int">
+        SELECT COUNT(BOARD_NUM)
+        FROM board;
+    </select>
 </mapper>
 
 
