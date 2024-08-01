@@ -14,13 +14,11 @@
     <select id="getBoardList" resultMap="board">
         SELECT BOARD_NUM, TITLE, MEM_ID, CREATE_DATE
         FROM BOARD
-
-        <if test='searchValue != null and !searchValue.equals("")'>
-            WHERE ${searchType} LIKE CONCAT('%', #{searchValue}, '%')
-        </if>
+<!--        <if test='searchValue != null and !searchValue.equals("")'>-->
+<!--            WHERE ${searchType} LIKE CONCAT('%', #{searchValue}, '%')-->
+<!--        </if>-->
         ORDER BY BOARD_NUM DESC
-<!--        LIMIT #{displayDataCnt}, #{displayDataCnt} * (#{nowPage} - 1)-->
-        LIMIT 5, 5
+        LIMIT #{displayDataCnt} OFFSET #{offset}
     </select>
 
     <select id="getSearchList" resultMap="board">

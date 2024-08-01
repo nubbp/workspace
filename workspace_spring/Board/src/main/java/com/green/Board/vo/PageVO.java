@@ -32,11 +32,14 @@ public class PageVO {
 //    다음 버튼 유무
     private boolean next;
 
+//    SQL용 offset 변수
+    private int offset;
+
 //    생성자
     public PageVO(int totalDataCnt) {
-        this.nowPage = 1;
-        this.displayPageCnt = 5;
-        this.displayDataCnt = 5;
+        nowPage = 1;
+        displayPageCnt = 5;
+        displayDataCnt = 10;
         this.totalDataCnt = totalDataCnt;
     }
 
@@ -47,18 +50,21 @@ public class PageVO {
 //        한 화면에 보이는 페이지 수-> displayPageCnt
         endPage = (int)Math.ceil(nowPage / (double)displayPageCnt) * displayPageCnt;
 
-//        화면에 보이는 시작 페이지 번호
+//      화면에 보이는 시작 페이지 번호
         beginPage = endPage - displayPageCnt + 1;
 
 //      전체 페이지 수
-        totalPageCnt = (int)Math.ceil(totalDataCnt / (double)displayPageCnt);
+        totalPageCnt = (int)Math.ceil(totalDataCnt / (double)displayDataCnt);
 
         if (endPage > totalPageCnt) { endPage = totalPageCnt; }
 
-//        이전 버튼 유무
+//      이전 버튼 유무
         prev = beginPage != 1;
 
-//        다음 버튼 유무
+//      다음 버튼 유무
         next = endPage != totalPageCnt;
+
+//      SQL용 offset 변수
+        offset = displayDataCnt * (nowPage - 1);
     }
 }
