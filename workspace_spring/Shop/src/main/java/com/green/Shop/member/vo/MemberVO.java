@@ -14,3 +14,14 @@ public class MemberVO {
     private String memEmail;
     private String memRole;
 }
+
+
+
+
+
+
+
+
+
+
+
