@@ -214,53 +214,78 @@ input, select, textarea{
   }
 }
 
-.user-menu-div{
+.user-menu-div, .admin-menu-div {
   /* background-color: #C5DEC7; */
   color: gray;
   font-weight: bold;
   padding: 20px;
 }
 
-.user-menu-div > .menu-ul{
+.user-menu-div > .menu-ul, .admin-menu-div > .menu-ul{
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 16px;
 }
 
-.user-menu-div > .menu-ul > li{
+.user-menu-div > .menu-ul > li, .admin-menu-div > .menu-ul > li{
   width: 160px;
   /* border: 1px solid black; */
   text-align: center;
 }
 
-
 /* validation 디자인 */
-.feedback {
-  margin-top: 4px;
+.feedback{
   font-size: 0.7rem;
+  margin-top: 4px;
   visibility: hidden;
 }
 
-.feedback.error {
-  color: red;
+.feedback.error{
+  color:red;
   visibility: visible;
 }
 
-.feedback.good {
-  color: green;
+.feedback.good{
+  color:rgb(110, 219, 2);
   visibility: visible;
 }
 
-.table {
+/* 추가 */
+
+.page-div{
   width: 500px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: rgba(230, 230, 230, 0.1);
+  box-shadow: 3px 3px 6px #dddddd;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.form input, .form select {
-  margin: 10px 0px 20px 0px;
-  width: 100%;
+.reg-item p {
+  margin: 20px 0px 5px 0px;
 }
 
-.reg-item-div {
-  padding: 20px;
+.admin-pages {
+  display: flex;
+}
+
+.side-menu-div {
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  text-align: right;
+  padding: 10px;
+  margin-top: 30px;
+  border-radius: 5px;
+}
+
+.side-menu-div li {
+  margin: 10px 0px;
+  padding: 5px 0px;
+  border-bottom: 3px solid #80AF81;
 }

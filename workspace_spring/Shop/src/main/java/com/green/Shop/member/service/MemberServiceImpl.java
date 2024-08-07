@@ -16,15 +16,17 @@ public class MemberServiceImpl implements MemberService{
         sqlSession.insert("memberMapper.join", memberVO);
     }
 
+    //아이디 중복확인
+    //사용 가능 : true, 사용 불가 : false
     @Override
     public boolean isEnableId(String memId) {
-//        사용 가능한 아이디면 selectedId : null
+        //사용 가능한 아이디면 selectedId : null
         String selectedId = sqlSession.selectOne("memberMapper.isEnableId", memId);
-//        System.out.println("@@@@@@@@@@"+ selectedId);
+
         return selectedId == null;
     }
 
-//    로그인
+    //로그인
     @Override
     public MemberVO login(MemberVO memberVO) {
         return sqlSession.selectOne("memberMapper.login", memberVO);

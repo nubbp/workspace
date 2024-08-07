@@ -45,19 +45,3 @@
 .inline-select > select{
   width: 40%;
 }
-
-/* .feedback{
-  visibility: hidden;
-  font-size: 0.7rem;
-  margin-top: 5px;
-}
-
-.feedback.error{
-  visibility: visible;
-  color: red;
-}
-
-.feedback.good{
-  visibility: visible;
-  color: rgb(45, 228, 45);
-} */

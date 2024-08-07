@@ -7,11 +7,11 @@ public interface MemberService {
     //회원 가입
     void join(MemberVO memberVO);
 
-//    아이디 중복 체크
-//    사용 가능: true
-//    사용 불가: false
+    //아이디 중복확인
+    //사용 가능 : true, 사용 불가 : false
     boolean isEnableId(String memId);
 
-//    로그인
+    //로그인
     MemberVO login(MemberVO memberVO);
+
 }
