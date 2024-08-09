@@ -9,4 +9,6 @@ public interface AdminService {
     List<CategoryVO> getCategoryList();
     void regItem(ItemVO itemVO);
     List<ItemVO> getItemList();
+    void insertImgs(ItemVO itemVO);
+    int getNextItemCode();
 }

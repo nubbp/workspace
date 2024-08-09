@@ -8,6 +8,7 @@ import Login from './pages/user/Login';
 import { useEffect, useState } from 'react';
 import RegItem from './pages/admin/RegItem';
 import ItemList from './pages/user/ItemList';
+import ItemDetail from './pages/user/ItemDetail';
 
 // 새로고침과 재렌더링은 다르다
 // 새로고침하면 state 변수와 값이 전부 초기화된다
@@ -81,7 +82,7 @@ function App() {
           <div>
             <img className='banner-img' src='http://localhost:8080/images/book_banner.PNG'/>
           </div>
-          <div className='title-div'>BOOK SHOP</div>
+          <div className='title-div' onClick={() => {navigate('/');}}>BOOK SHOP</div>
         </div>
       </div>
 
@@ -98,6 +99,9 @@ function App() {
 
             {/* 로그인 페이지 */}
             <Route path='loginForm' element={ <Login setLoginInfo={setLoginInfo} loginInfo={loginInfo} /> }/>
+
+            {/* 상품 상세 */}
+            <Route path='itemDetail/:itemCode' element={ <ItemDetail /> }/>
           </Route>
 
           {/* 관리자용 */}

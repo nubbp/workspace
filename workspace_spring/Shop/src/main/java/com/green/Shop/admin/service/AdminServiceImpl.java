@@ -26,6 +26,16 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public List<ItemVO> getItemList() {
-        return sqlSession.selectList("adminMapper.getItemList");
+        return sqlSession.selectList("itemMapper.getItemList");
+    }
+
+    @Override
+    public void insertImgs(ItemVO itemVO) {
+        sqlSession.insert("adminMapper.insertImgs", itemVO);
+    }
+
+    @Override
+    public int getNextItemCode() {
+        return sqlSession.selectOne("adminMapper.getNextItemCode");
     }
 }

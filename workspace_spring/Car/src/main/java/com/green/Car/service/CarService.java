@@ -1,11 +1,13 @@
 package com.green.Car.service;
 
-import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.green.Car.vo.CarVO;
 
-@Service("carService")
-public class CarService {
-    @Autowired
-    private SqlSessionTemplate sqlSession;
+import java.util.List;
+
+public interface CarService {
+//    차량 목록 불러오기
+    List<CarVO> getCarList();
+
+//    차량 등록하기
+    void regCar(CarVO carVO);
 }

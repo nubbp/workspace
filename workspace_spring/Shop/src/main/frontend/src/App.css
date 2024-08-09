@@ -289,3 +289,51 @@ input, select, textarea{
   padding: 5px 0px;
   border-bottom: 3px solid #80AF81;
 }
+
+.item-list, .detail {
+  width: 1000px;
+}
+.item-div {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.item-div > div{
+  margin: 0px 10px 50px 10px;
+  box-shadow: 3px 3px 6px #dddddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.item-div > div > img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.item-div > div > h4, .item-div > div > p {
+  padding: 0px 15px 10px 15px;
+}
+
+.detail.info-div {
+  display: flex;
+  height: 300px;
+}
+.detail .img-div  {
+  text-align: center;
+  width: 300px;
+  margin-right: 30px
+}
+.detail .img-div img {
+  height: 100%;
+}
+.detail.img-div.sub {
+  margin-top: 30px;
+  width: 100%;
+}
+.detail.img-div.sub img {
+  width: 100%;
+}
+.detail.text-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}

@@ -1,4 +1,4 @@
 package com.green.Car.service;
 
-public class SalesServiceImpl {
+public class SalesServiceImpl implements SalesService {
 }

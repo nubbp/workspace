@@ -10,17 +10,13 @@
         <result column="BRAND" property="brand" />
     </resultMap>
 
+    <!-- 차량 목록 불러오기-->
     <select id="getCarList" resultMap="car">
         SELECT MODEL_NUM, MODEL_NAME, COST, BRAND
         FROM CAR_INFO;
     </select>
 
-    <select id="getCar" resultMap="car">
-        SELECT MODEL_NUM, MODEL_NAME, COST, BRAND
-        FROM CAR_INFO
-        WHERE MODEL_NUM = #{modelNum};
-    </select>
-
+    <!-- 차량 등록하기 -->
     <insert id="regCar">
         INSERT INTO CAR_INFO (MODEL_NAME, COST, BRAND)
         VALUES (#{modelName}, #{cost}, #{brand});
