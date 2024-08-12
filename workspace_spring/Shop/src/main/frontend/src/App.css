@@ -225,14 +225,22 @@ input, select, textarea{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
 }
 
 .user-menu-div > .menu-ul > li, .admin-menu-div > .menu-ul > li{
-  width: 160px;
+  width: 250px;
   /* border: 1px solid black; */
   text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 3px solid #cccccc;
 }
+.user-menu-div > .menu-ul > li:hover, .admin-menu-div > .menu-ul > li:hover {
+  color: #80AF81;
+  cursor: pointer;
+  border-bottom:3px solid #508D4E;
+}
+.side-menu-div > .menu-ul > li {width: 180px;}
 
 /* validation 디자인 */
 .feedback{
@@ -266,6 +274,10 @@ input, select, textarea{
   gap: 10px;
 }
 
+.reg-item {
+  width: 100%;
+}
+
 .reg-item p {
   margin: 20px 0px 5px 0px;
 }
@@ -276,18 +288,30 @@ input, select, textarea{
 
 .side-menu-div {
   display: flex;
-  justify-content: center;
-  width: 150px;
-  text-align: right;
+  justify-content: end;
+  width: 300px;
   padding: 10px;
-  margin-top: 30px;
+  margin: 30px 20px 0px 0px;
   border-radius: 5px;
+  /* box-shadow: 3px 3px 6px #dddddd; */
 }
 
 .side-menu-div li {
-  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0px;
   padding: 5px 0px;
+  border-bottom: 3px solid #C5DEC7;
+}
+.side-menu-div li:hover{
+  cursor: pointer;
+  color: #80AF81;
+  font-weight: bold;
   border-bottom: 3px solid #80AF81;
+}
+.side-menu-div li > i{
+  color: #C5DEC7;
+  font-size: 16px;
 }
 
 .item-list, .detail {

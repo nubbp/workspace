@@ -1,4 +1,23 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const RegSaleForm = () => {
+   const navigate = useNavigate();
+   const [saleInfoList, setSaleInfoList] = useState([]);
+   const [regNewSale, setRegNewSale] = useState({
+      buyerName : '',
+      color : '블랙',
+      brand : '',
+      buyerPhone : ''
+   });
+
+   useEffect(() => {
+      axios.get("/sales/getSalesList")
+      .then((res) => {setSaleInfoList(res.data);})
+      .catch((error) => {alert(error);});
+   }, [])
+   
    return (
       <div className="reg-sale-div">
          <div className="table form">
@@ -12,16 +31,23 @@ const RegSaleForm = () => {
                      <td>색상</td>
                      <td >
                      <select name="color">
-                           <option value="black">블랙</option>
-                           <option value="white">화이트</option>
-                           <option value="sliver">실버</option>
-                           <option value="red">레드</option>
+                        <option value="블랙">블랙</option>
+                        <option value="화이트">화이트</option>
+                        <option value="실버">실버</option>
+                        <option value="레드">레드</option>
                         </select>
                      </td>
                      <td>모델</td>
                      <td >
-                        <select name="brand">
-                           <option value="?">?</option>
+                        <select name="modelNum">
+                           {
+                              saleInfoList.map((saleInfo, i) => {
+                                 return(
+                                    <option key={i} value="{saleInfo.modelNum}">{saleInfo.modelNum}</option>
+                                 );
+                              })
+                           }
+                           
                         </select>
                      </td>
                   </tr>

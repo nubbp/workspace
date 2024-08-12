@@ -9,6 +9,11 @@ import { useEffect, useState } from 'react';
 import RegItem from './pages/admin/RegItem';
 import ItemList from './pages/user/ItemList';
 import ItemDetail from './pages/user/ItemDetail';
+import ItemManage from './pages/admin/ItemManage';
+import CategoryManage from './pages/admin/CategoryManage';
+import SaleHistoryOfMonth from './pages/admin/SaleHistoryOfMonth';
+import SearchUser from './pages/admin/SearchUser';
+import RecordOfMonth from './pages/admin/RecordOfMonth';
 
 // 새로고침과 재렌더링은 다르다
 // 새로고침하면 state 변수와 값이 전부 초기화된다
@@ -110,6 +115,11 @@ function App() {
             <Route path='test1' element={ <div>상품등록페이지</div> }/>
             {/* 상품 등록 화면 */}
             <Route path='regItem' element={ <RegItem /> }/>
+            <Route path='itemManage' element={ <ItemManage /> }/>
+            <Route path='categoryManage' element={ <CategoryManage /> }/>
+            <Route path='saleHistoryOfMonth' element={ <SaleHistoryOfMonth /> }/>
+            <Route path='searchUser' element={ <SearchUser /> }/>
+            <Route path='recordOfMonth' element={ <RecordOfMonth /> }/>
           </Route>
         </Routes>
       </div>

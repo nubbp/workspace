@@ -9,7 +9,7 @@ const UserLayout = () => {
         <ul className='menu-ul'>
           <li>전체상품</li>
           <li>인터넷/IT</li>
-          <li>소설</li>
+          <li>소설/에세이</li>
           <li>자기계발</li>
         </ul>
       </div>

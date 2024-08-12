@@ -97,7 +97,7 @@ const Login = ({setLoginInfo, loginInfo}) => {
       if (loginInfo.memRole == 'USER') {
         navigate('/');
       } else {
-        navigate('/admin/regItem');
+        navigate('/admin/itemManage');
       }
 
     }

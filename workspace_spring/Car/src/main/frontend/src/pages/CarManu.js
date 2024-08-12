@@ -6,7 +6,7 @@ const CarManu = () => {
    const navigate = useNavigate();
    const [carList, setCarList] = useState([]);
    const [newCar, setNewCar] = useState({
-      brand : '',
+      brand : '현대',
       modelName : '',
       cost : 0
    });

@@ -23,6 +23,7 @@ public class CarController {
 //    차량 등록하기
     @PostMapping("/regCar")
     public void regCar(@RequestBody CarVO carVO) {
+        System.out.println(carVO);
         carService.regCar(carVO);
     }
 }
