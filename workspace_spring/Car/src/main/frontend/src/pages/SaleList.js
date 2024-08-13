@@ -1,4 +1,14 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 const SaleList = () => {
+   const [saleInfoList, setSaleInfoList] = useState([]);
+   useEffect(() => {
+      axios.get("/sales/getSalesList")
+      .then((res) => {setSaleInfoList(res.data);})
+      .catch((error) => {alert(error);})
+   }, [])
+   console.log(saleInfoList);
    return (
       <div className="sale-list-div">
          <div className="table">
@@ -19,15 +29,21 @@ const SaleList = () => {
                   </tr>
                </thead>
                <tbody>
-                  <tr>
-                     <td>1</td>
-                     <td>2</td>
-                     <td>3</td>
-                     <td>4</td>
-                     <td>5</td>
-                     <td>6</td>
-                     <td>7</td>
-                  </tr>
+                  {
+                     saleInfoList.map((saleInfo, i) => {
+                        return(
+                           <tr key={i}>
+                              <td>{i+1}</td>
+                              <td>{saleInfo.buyerName}</td>
+                              <td>{saleInfo.buyerPhone}</td>
+                              <td>{saleInfo.saleDate}</td>
+                              <td>{saleInfo.color}</td>
+                              <td>{saleInfo.car.modelName}</td>
+                              <td>{saleInfo.car.cost}</td>
+                           </tr>
+                        );
+                     })
+                  }
                </tbody>
             </table>
          </div>

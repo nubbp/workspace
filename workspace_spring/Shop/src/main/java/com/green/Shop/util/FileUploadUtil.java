@@ -1,7 +1,6 @@
 package com.green.Shop.util;
 
 import com.green.Shop.item.vo.ImgVO;
-import com.green.Shop.item.vo.ItemVO;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;

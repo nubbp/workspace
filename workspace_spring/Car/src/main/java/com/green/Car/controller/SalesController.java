@@ -3,9 +3,7 @@ package com.green.Car.controller;
 import com.green.Car.service.SalesService;
 import com.green.Car.vo.SalesVO;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +16,11 @@ public class SalesController {
     @GetMapping("/getSalesList")
     public List<SalesVO> getSalesList() {
         return salesService.getSalesList();
+    }
+
+    @PostMapping("/regSalesInfo")
+    public void regSalesInfo(@RequestBody SalesVO salesVO) {
+        System.out.println(salesVO);
+        salesService.regSalesInfo(salesVO);
     }
 }

@@ -6,6 +6,8 @@ const AdminLayout = () => {
   const [sideMenuValue, setSideMenuValue] = useState(1);
   const navigate = useNavigate();
 
+  
+
   function changeSideMenu (e) {
     setSideMenuValue(e.target.value);
   }

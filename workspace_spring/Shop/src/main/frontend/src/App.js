@@ -14,6 +14,7 @@ import CategoryManage from './pages/admin/CategoryManage';
 import SaleHistoryOfMonth from './pages/admin/SaleHistoryOfMonth';
 import SearchUser from './pages/admin/SearchUser';
 import RecordOfMonth from './pages/admin/RecordOfMonth';
+import CartList from './pages/user/CartList';
 
 // 새로고침과 재렌더링은 다르다
 // 새로고침하면 state 변수와 값이 전부 초기화된다
@@ -106,7 +107,10 @@ function App() {
             <Route path='loginForm' element={ <Login setLoginInfo={setLoginInfo} loginInfo={loginInfo} /> }/>
 
             {/* 상품 상세 */}
-            <Route path='itemDetail/:itemCode' element={ <ItemDetail /> }/>
+            <Route path='itemDetail/:itemCode' element={ <ItemDetail loginInfo={loginInfo} /> }/>
+
+            {/* 장바구니 목록 */}
+            <Route path='cartList/:memId' element={ <CartList loginInfo={loginInfo} /> }/>
           </Route>
 
           {/* 관리자용 */}

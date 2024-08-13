@@ -7,4 +7,5 @@ import java.util.List;
 public interface SalesService {
 //    판매 목록 불러오기
     List<SalesVO> getSalesList();
+    void regSalesInfo(SalesVO salesVO);
 }

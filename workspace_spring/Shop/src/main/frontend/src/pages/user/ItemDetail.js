@@ -1,10 +1,31 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const ItemDetail = () => {
+const ItemDetail = ({loginInfo}) => {
+   const navigate = useNavigate();
    const {itemCode} = useParams();
    const [item, setItem] = useState({});
+   const [shopCart, setShopCart] = useState({
+      itemCode : itemCode
+      , cartCnt : 1
+      , memId : loginInfo.memId
+   });
+
+   function changeCart(e) {
+      setShopCart({
+         ...shopCart,
+         [e.target.name] : e.target.value
+      })
+   }
+
+   function buyBtn() {
+      axios.post('/cart/plusCart', shopCart)
+      .then((res) => {
+         alert("장바구니에 담기 성공");
+      })
+      .catch((error) => {alert(error);})
+   }
 
    useEffect(() => {
       axios.get(`/item/itemDetail/${itemCode}`)
@@ -12,8 +33,7 @@ const ItemDetail = () => {
       .catch((error) => {alert(error);});
    }, []);
 
-   // console.log(item);
-
+   console.log(shopCart);
    return (
       <div className='detail page-div'>
          {
@@ -25,10 +45,14 @@ const ItemDetail = () => {
                   </div>
                   <div className='detail text-div'>
                      <div>카테고리 : {item.cateList[0].cateName}</div>
-                     <div>책 번호 : {item.itemCode}</div>
                      <div>책 제목 : {item.itemName}</div>
-                     <div>가격 : {Number(item.itemPrice).toLocaleString()}원</div>
-                     <div>재고 : {item.itemStock}개</div>
+                     <div>수량 : <input type='number' name='cartCnt' defaultValue={1} onClick={(e) => {changeCart(e);}} /></div>
+                     <div>총 가격 : {Number(item.itemPrice*shopCart.cartCnt).toLocaleString()}원</div>
+                     <div className='btn-div'>
+                        <button type='button' onClick={() => {buyBtn();}}>구매하기</button>
+                        <button type='button' onClick={() => {}}>장바구니에 담기</button>
+                        <button type='button' onClick={() => {navigate(`/cartList/${loginInfo.memId}`);}}>장바구니로 이동</button>
+                     </div>
                   </div>
                </div>
                <div className='detail img-div sub'>

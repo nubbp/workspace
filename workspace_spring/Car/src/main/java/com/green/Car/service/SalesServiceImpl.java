@@ -17,4 +17,9 @@ public class SalesServiceImpl implements SalesService {
     public List<SalesVO> getSalesList() {
         return sqlSession.selectList("salesMapper.getSalesList");
     }
+
+    @Override
+    public void regSalesInfo(SalesVO salesVO) {
+        sqlSession.insert("salesMapper.regSalesInfo", salesVO);
+    }
 }

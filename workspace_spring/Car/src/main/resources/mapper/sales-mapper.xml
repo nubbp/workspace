@@ -10,15 +10,21 @@
         <result column="COLOR" property="color" />
         <result column="SALE_DATE" property="saleDate" />
         <result column="MODEL_NUM" property="modelNum" />
+        <collection property="car" resultMap="carMapper.car" />
     </resultMap>
 
     <!-- 판매 목록 리스트 불러오기 -->
     <select id="getSalesList" resultMap="sales">
-        SELECT SALES_NUM, BUYER_NAME, BUYER_PHONE, COLOR, SALE_DATE, MODEL_NUM
-        FROM SALES_INFO
+        SELECT SALES_NUM, BUYER_NAME, BUYER_PHONE, COLOR, SALE_DATE, S.MODEL_NUM, MODEL_NAME, COST
+        FROM SALES_INFO S, CAR_INFO C
+        WHERE S.MODEL_NUM = C.MODEL_NUM
     </select>
 
-
+    <!-- 판매 정보 등록하기 -->
+    <insert id="regSalesInfo">
+        INSERT INTO SALES_INFO (BUYER_NAME, COLOR, MODEL_NUM, BUYER_PHONE)
+        VALUES (#{buyerName}, #{color}, #{modelNum}, #{buyerPhone});
+    </insert>
 </mapper>
 
 
