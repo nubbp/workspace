@@ -9,8 +9,9 @@
         <result column="CART_CNT" property="cartCnt" />
         <result column="MEM_ID" property="memId" />
         <result column="CART_DATE" property="cartDate" />
-        <collection property="member" resultMap="memberMapper.member" />
-        <collection property="item" resultMap="itemMapper.item" />
+        <collection property="imgList" resultMap="itemMapper.img"/>
+        <collection property="memberList" resultMap="memberMapper.member" />
+        <collection property="itemList" resultMap="itemMapper.item" />
     </resultMap>
 
     <insert id="plusCart">
@@ -19,10 +20,36 @@
     </insert>
 
     <select id="getCartList" resultMap="cart">
-        SELECT CART_CODE, C.ITEM_CODE, CART_CNT, C.MEM_ID, CART_DATE, ITEM_NAME, ITEM_PRICE
-        FROM SHOP_CART C, SHOP_ITEM I, SHOP_MEMBER M
+        SELECT CART_CODE, C.ITEM_CODE, CART_CNT, C.MEM_ID, DATE_FORMAT(CART_DATE, '%Y-%m-%d %H:%i') AS CART_DATE, ITEM_NAME, ITEM_PRICE, ATTACHED_FILE_NAME
+        FROM SHOP_CART C, SHOP_ITEM I, SHOP_MEMBER M, ITEM_IMG IMG
         WHERE C.ITEM_CODE = I.ITEM_CODE
+        AND IMG.ITEM_CODE = I.ITEM_CODE
+        AND IS_MAIN = 'Y'
         AND C.MEM_ID = M.MEM_ID
         AND C.MEM_ID = #{memId}
+        ORDER BY CART_DATE ASC
     </select>
+
+    <select id="existColumn" resultType="boolean">
+        SELECT *
+        FROM shop_cart
+        WHERE ITEM_CODE = #{itemCode} AND MEM_ID = #{memId};
+    </select>
+    
+    <update id="updateCnt">
+        UPDATE shop_cart
+        SET CART_CNT = #{cartCnt}
+        WHERE CART_CODE = #{cartCode}
+    </update>
+
+    <update id="updateExtraCart">
+        UPDATE shop_cart
+        SET CART_CNT = CART_CNT + #{cartCnt}, CART_DATE = CURRENT_TIMESTAMP
+        WHERE ITEM_CODE = #{itemCode} AND MEM_ID = #{memId};
+    </update>
+
+    <delete id="deleteOneCart">
+        DELETE FROM SHOP_CART
+        WHERE CART_CODE = #{cartCode}
+    </delete>
 </mapper>

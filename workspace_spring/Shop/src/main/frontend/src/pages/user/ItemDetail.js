@@ -1,16 +1,20 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
+import { json, useNavigate, useParams } from 'react-router-dom';
 
-const ItemDetail = ({loginInfo}) => {
+const ItemDetail = () => {
    const navigate = useNavigate();
+   const memId = JSON.parse(window.sessionStorage.getItem('loginInfo')).memId;
    const {itemCode} = useParams();
+   console.log(itemCode);
    const [item, setItem] = useState({});
    const [shopCart, setShopCart] = useState({
       itemCode : itemCode
       , cartCnt : 1
-      , memId : loginInfo.memId
+      , memId : memId
    });
+
+   
 
    function changeCart(e) {
       setShopCart({
@@ -22,7 +26,9 @@ const ItemDetail = ({loginInfo}) => {
    function buyBtn() {
       axios.post('/cart/plusCart', shopCart)
       .then((res) => {
-         alert("장바구니에 담기 성공");
+         if(!window.confirm('장바구니에 상품을 담았습니다. \n계속 쇼핑하겠습니까?')) {
+            navigate(`/cartList`);
+         }
       })
       .catch((error) => {alert(error);})
    }
@@ -46,14 +52,28 @@ const ItemDetail = ({loginInfo}) => {
                   <div className='detail text-div'>
                      <div>카테고리 : {item.cateList[0].cateName}</div>
                      <div>책 제목 : {item.itemName}</div>
-                     <div>수량 : <input type='number' name='cartCnt' defaultValue={1} onClick={(e) => {changeCart(e);}} /></div>
-                     <div>총 가격 : {Number(item.itemPrice*shopCart.cartCnt).toLocaleString()}원</div>
+                     <div>수량 : <input type='number' name='cartCnt' defaultValue={1} onChange={(e) => {
+                        e.target.value < 1 || e.target.value > 10
+                        ?
+                        e.target.value = 1
+                        :
+                        e.target.value = e.target.value
+                        
+                        changeCart(e);}} min={1} /></div>
+                     <div>총 가격 : {
+                        Object.keys(item).length == 0 ? '' : 
+                        (item.itemPrice * shopCart.cartCnt).toLocaleString()
+                     }원</div>
                      <div className='btn-div'>
-                        <button type='button' onClick={() => {buyBtn();}}>구매하기</button>
-                        <button type='button' onClick={() => {}}>장바구니에 담기</button>
-                        <button type='button' onClick={() => {navigate(`/cartList/${loginInfo.memId}`);}}>장바구니로 이동</button>
+                        <button type='button' className='btn' onClick={() => {buyBtn();}}>구매하기</button>
+                        <button type='button' className='btn' onClick={() => {}}>장바구니에 담기</button>
+                        <button type='button' className='btn' onClick={() => {navigate(`/cartList`);}}>장바구니로 이동</button>
                      </div>
                   </div>
+               </div>
+               <div className='detail intro-div'>
+                  <h5>책 설명</h5>
+                  <p>{item.itemIntro}</p>
                </div>
                <div className='detail img-div sub'>
                   <img src={`http://localhost:8080/upload/${item.imgList[1].attachedFileName}`} />

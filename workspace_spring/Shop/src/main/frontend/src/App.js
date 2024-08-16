@@ -19,6 +19,8 @@ import CartList from './pages/user/CartList';
 // 새로고침과 재렌더링은 다르다
 // 새로고침하면 state 변수와 값이 전부 초기화된다
 // 재렌더링하면 state 변수의 값은 보존된다
+// state 변경함수는 모든 코드가 실행된 후 일괄적으로 한번에 처리
+// state 변경함수는 비동기 방식이기 때문에 주의 
 
 function App() {
   const navigate = useNavigate();
@@ -29,7 +31,7 @@ function App() {
   // 로그인 성공 시 loginInfo에 로그인 정보를 저장하지만
   // 새로고침하면 App.js를 다시 시작하면서 loginInfo 변수의 값이 초기화된다 
   // 새로고침을 하더라도 sessionStorage에 로그인 정보는 곤재하니.
-  // 새로고치맣 라 떄 만약 로그인 정보가 sessionStorage에 남아있다면 loginInfo state 변수에 로그인정보를 저장시켜야 함 
+  // 새로고침을 할 때 만약 로그인 정보가 sessionStorage에 남아있다면 loginInfo state 변수에 로그인정보를 저장시켜야 함 
 
 
   // App.js가 mount(새로고침) 되면 실행
@@ -107,10 +109,10 @@ function App() {
             <Route path='loginForm' element={ <Login setLoginInfo={setLoginInfo} loginInfo={loginInfo} /> }/>
 
             {/* 상품 상세 */}
-            <Route path='itemDetail/:itemCode' element={ <ItemDetail loginInfo={loginInfo} /> }/>
+            <Route path='itemDetail/:itemCode' element={ <ItemDetail /> }/>
 
             {/* 장바구니 목록 */}
-            <Route path='cartList/:memId' element={ <CartList loginInfo={loginInfo} /> }/>
+            <Route path='cartList' element={ <CartList loginInfo={loginInfo} /> }/>
           </Route>
 
           {/* 관리자용 */}
